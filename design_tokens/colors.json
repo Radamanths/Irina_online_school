@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "generated": "2025-11-19",
+    "source": "Выгружено из Сайт_Брендбук/Брендбук",
+    "notes": "Hex-значения собраны из существующих SVG/градиентов Virgo School"
+  },
+  "colors": {
+    "core": [
+      {
+        "token": "color.core.midnight",
+        "hex": "#0a1123",
+        "roles": ["hero-bg", "primary-type"],
+        "source": ["Сайт_Брендбук/Брендбук/svg/символы-81.svg"],
+        "description": "Главный глубокий фон (ночной ультрамарин)"
+      },
+      {
+        "token": "color.core.royal",
+        "hex": "#3a3e6c",
+        "roles": ["secondary-bg", "buttons"],
+        "source": ["Сайт_Брендбук/Брендбук/svg/символы-11.svg"],
+        "description": "Фирменный сине-фиолетовый тон Virgo"
+      },
+      {
+        "token": "color.core.gold",
+        "hex": "#f3c74a",
+        "roles": ["cta", "iconography", "links"],
+        "source": ["Сайт_Брендбук/Брендбук/svg/символы-21.svg", ".../svg/символы-29.svg"],
+        "description": "Основной акцентный золотой"
+      }
+    ],
+    "support": [
+      {
+        "token": "color.support.brass-dark",
+        "hex": "#987c26",
+        "roles": ["gradient-stop", "outline"],
+        "source": ["Сайт_Брендбук/Брендбук/градиенты/градиент-01.svg"],
+        "description": "Темный край фирменного градиента"
+      },
+      {
+        "token": "color.support.brass-light",
+        "hex": "#d8b647",
+        "roles": ["gradient-stop", "hover"],
+        "source": ["Сайт_Брендбук/Брендбук/градиенты/градиент-15.svg"],
+        "description": "Светлая точка фирменного градиента"
+      },
+      {
+        "token": "color.support.plum",
+        "hex": "#363e6c",
+        "roles": ["cards", "icon-fill"],
+        "source": ["Сайт_Брендбук/Брендбук/svg/символы-82.svg"],
+        "description": "Насыщенный холодный фон для блоков"
+      },
+      {
+        "token": "color.support.lilac",
+        "hex": "#8287c3",
+        "roles": ["badges", "tags"],
+        "source": ["Сайт_Брендбук/Брендбук/svg/символы-81.svg"],
+        "description": "Лавандовый оттенок для статусов"
+      },
+      {
+        "token": "color.support.mist",
+        "hex": "#949bb5",
+        "roles": ["muted-bg", "dividers"],
+        "source": ["Сайт_Брендбук/Брендбук/svg/символы-78.svg"],
+        "description": "Пастельный голубовато-серый"
+      }
+    ],
+    "neutrals": [
+      {
+        "token": "color.neutral.white",
+        "hex": "#ffffff",
+        "roles": ["text-on-dark", "icons"],
+        "source": ["Сайт_Брендбук/Брендбук/svg/символы-81.svg"],
+        "description": "Бренд использует чисто белый для контраста"
+      },
+      {
+        "token": "color.neutral.graphite",
+        "hex": "#1a1a1a",
+        "roles": ["body-type", "ui-border"],
+        "source": ["извлечено из темных штрихов в svg/символы-52.svg"],
+        "description": "Практичный нейтральный для текста в светлых блоках"
+      }
+    ],
+    "gradients": [
+      {
+        "token": "gradient.core.aurum",
+        "stops": [
+          { "hex": "#987c26", "position": 0 },
+          { "hex": "#d8b647", "position": 1 }
+        ],
+        "source": [
+          "Сайт_Брендбук/Брендбук/градиенты/градиент-01.svg",
+          "Сайт_Брендбук/Брендбук/градиенты/градиент-15.svg"
+        ],
+        "usage": "Заливки больших форм, кнопки premium"
+      }
+    ]
+  }
+}

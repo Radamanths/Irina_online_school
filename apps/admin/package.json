@@ -1,0 +1,26 @@
+{
+  "name": "@virgo/admin",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev --turbo --port 3001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@virgo/config": "workspace:*",
+    "@virgo/ui": "workspace:*",
+    "axios": "1.7.4",
+    "clsx": "2.1.0",
+    "next": "15.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.30",
+    "@types/react": "18.3.5",
+    "@types/react-dom": "18.3.0",
+    "eslint-config-next": "16.0.3"
+  }
+}

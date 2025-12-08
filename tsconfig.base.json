@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@virgo/ui": ["packages/ui/src/index.ts"],
+      "@virgo/ui/*": ["packages/ui/src/*"],
+      "@virgo/types": ["packages/config/types/index.ts"]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,34 @@
+# Node
+node_modules/
+dist/
+.next/
+.storybook/out/
+coverage/
+.pnp.*
+
+# Env
+.env*
+*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Prisma
+/prisma/migrations/*/steps.json
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Generated assets
+/public/assets/**
+/apps/**/.turbo

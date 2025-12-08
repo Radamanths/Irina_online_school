@@ -1,0 +1,27 @@
+{
+  "name": "virgo-school-platform",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.7.0",
+  "scripts": {
+    "predev": "pnpm --filter @virgo/config run build",
+    "dev": "turbo run dev --parallel",
+    "prebuild": "pnpm --filter @virgo/config run build",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "storybook": "turbo run storybook",
+    "migrate:dry-run": "ts-node --project tsconfig.base.json tools/wp-migrate.ts --dry-run",
+    "migrate:run": "ts-node --project tsconfig.base.json tools/wp-migrate.ts",
+    "migrate:import": "ts-node --project tsconfig.base.json tools/wp-import.ts"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.15.1",
+    "@types/node": "20.11.30",
+    "eslint": "9.9.0",
+    "prettier": "3.2.5",
+    "ts-node": "10.9.2",
+    "turbo": "2.1.0",
+    "typescript": "5.7.3"
+  }
+}

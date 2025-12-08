@@ -1,0 +1,687 @@
+{
+  "common": {
+    "brandName": "Virgo School",
+    "navigation": {
+      "primary": [
+        { "label": "Courses", "path": "courses" },
+        { "label": "Services", "path": "services" },
+        { "label": "About", "path": "about" },
+        { "label": "Blog", "path": "blog" }
+      ],
+      "cta": { "label": "Apply", "path": "apply" }
+    },
+    "footer": {
+      "tagline": "Classical western astrology taught online since 2010",
+      "contact": "info@virgoschool.com",
+      "legal": "© 2025 Virgo School. All rights reserved.",
+      "phone": "+7 701 533 0494",
+      "whatsapp": "+7 701 533 0494",
+      "address": "Astana, Kazakhstan · online cohorts worldwide",
+      "cardLabel": "Transfer to card",
+      "cardNumber": "5356 5020 1774 5666 (USD)",
+      "paymentNote": "Western Union · Zolotaya Korona · recipient Irina Abdraimova",
+      "contactLabel": "Contacts",
+      "paymentLabel": "Payment",
+      "socialLabel": "We are online",
+      "socials": [
+        { "label": "Instagram", "href": "https://www.instagram.com/astrolog_virgo_school/" },
+        { "label": "YouTube", "href": "https://www.youtube.com/channel/UCfPRH6BUprNekGbieXtbr7A/" }
+      ]
+    }
+  },
+  "hero": {
+    "eyebrow": "Astrology in life and business",
+    "headline": "Virgo School — classical western astrology online",
+    "subline": "We guide beginners and practicing astrologers with structured modules, mentorship, and live webinars.",
+    "primaryCta": "Enroll in a course",
+    "secondaryCta": "See services"
+  },
+  "coursesHome": {
+    "eyebrow": "Programs",
+    "heading": "Choose your track",
+    "viewAll": "View all",
+    "detailCta": "Explore"
+  },
+  "home": {
+    "metrics": {
+      "eyebrow": "Results",
+      "title": "Virgo in numbers",
+      "description": "The school combines classical western methodology with modern online delivery.",
+      "items": [
+        { "value": "15+", "label": "years of teaching astrology" },
+        { "value": "3", "label": "curriculums from basics to forecasting" },
+        { "value": "700+", "label": "graduates across CIS and Europe" },
+        { "value": "24/7", "label": "access to lessons for one year" }
+      ]
+    },
+    "webinar": {
+      "eyebrow": "Webinar",
+      "title": "Astrology in life and business",
+      "description": "Watch the open class where Irina Abdraimova shows how horary charts guide practical decisions.",
+      "details": [
+        "Recording + Q&A transcript",
+        "Free access right after registration"
+      ],
+      "ctaLabel": "Watch recording",
+      "ctaHref": "https://virgoschool.com/webinar_recording/",
+      "note": "“Nature gave astrology as the ally of astronomy.” — J. Kepler"
+    },
+    "education": {
+      "eyebrow": "Virgo online school",
+      "title": "Classical approach, modern format",
+      "description": "Virgo School explains planetary laws in a structured, scientific way without mysticism.",
+      "body": "Each topic includes HD video lessons, downloadable tables, homework, and curator feedback in WhatsApp.",
+      "highlights": [
+        "Founder: diploma astrologer Irina Abdraimova",
+        "Mentorship and webinars during every module",
+        "Access to the platform and community for 12 months"
+      ]
+    },
+    "programs": {
+      "eyebrow": "Education",
+      "title": "Programs for any level",
+      "description": "Start with a cosmogram or deepen your expertise in forecasting and synastry.",
+      "cards": [
+        {
+          "name": "Astropsychology · Cosmogram",
+          "subtitle": "Base course",
+          "duration": "6 modules · 6–7 months",
+          "modules": "History, cosmogram, planetology, practice",
+          "price": "$150 per module / $810 full",
+          "href": "https://virgoschool.com/kursy/blok-1/?tab=tab-curriculum",
+          "linkLabel": "View syllabus"
+        },
+        {
+          "name": "Compatibility Astrology",
+          "subtitle": "Advanced practice",
+          "duration": "1 module · 1 month",
+          "modules": "Psychological, behavioral, financial compatibility",
+          "price": "$160 per module",
+          "href": "https://virgoschool.com/kursy/modul-7/?tab=tab-curriculum",
+          "linkLabel": "View syllabus"
+        },
+        {
+          "name": "Horoscope · House connections",
+          "subtitle": "Forecasting",
+          "duration": "7 modules · 7 months",
+          "modules": "Natal chart, house relations, relocation analysis",
+          "price": "$150 per module / $945 full",
+          "href": "https://virgoschool.com/kursy/goroskop-algoritm-svjazej-domov/",
+          "linkLabel": "View syllabus"
+        }
+      ],
+      "ctaLabel": "All courses"
+    },
+    "astroServices": {
+      "eyebrow": "Services",
+      "title": "Consultations from Virgo astrologers",
+      "description": "All consultants are Virgo graduates supervised by Irina Abdraimova.",
+      "cards": [
+        {
+          "name": "Synastry consultation",
+          "description": "Compatibility analysis for partners, teams, or business unions.",
+          "duration": "Format: 60–90 min online + PDF summary",
+          "price": "Fee: $150",
+          "href": "https://virgoschool.com/sinastricheskaja-astrologija/"
+        },
+        {
+          "name": "Horary question",
+          "description": "Precise answer to a concrete question within 48 hours.",
+          "duration": "Format: written report + 20 min call",
+          "price": "Fee: $120",
+          "href": "https://virgoschool.com/uslugi-astrologa-virgo/"
+        },
+        {
+          "name": "Rectification table",
+          "description": "We clarify your birth time using documented life events.",
+          "duration": "Need 10–12 dated events",
+          "price": "Fee: $180",
+          "href": "https://virgoschool.com/usluga-tablica-dlja-rektifikacii/"
+        }
+      ],
+      "ctaLabel": "See all services",
+      "ctaHref": "/services"
+    },
+    "application": {
+      "eyebrow": "Enrollment",
+      "title": "How training works",
+      "description": "Every module equals 12 academic hours — three sessions per week.",
+      "steps": [
+        { "title": "Leave a request", "description": "Write on WhatsApp +7 701 533 0494 or email info@virgoschool.com." },
+        { "title": "Select a program", "description": "We help match your goals, level, and schedule." },
+        { "title": "Pay for the module", "description": "Transfer $150 via card or Western Union and send the receipt." },
+        { "title": "Get access", "description": "Within 24 hours you receive the LMS login, video lessons, and curator chat." }
+      ],
+      "note": "Support stays with you throughout the year — webinars, homework feedback, and live Q&A."
+    },
+    "blogPreview": {
+      "eyebrow": "Journal",
+      "title": "Recent articles",
+      "description": "Virgo School shares analytics, forecasts, and theory for students.",
+      "posts": [
+        {
+          "title": "What world is being prepared for us",
+          "excerpt": "Irina explores the global reset and karmic lessons of 2025.",
+          "href": "https://virgoschool.com/kakoj-mir-gotovjat-dlja-nas-ili-bolshaja-chistka-pered-perezagruzkoj/",
+          "tag": "Analytics"
+        },
+        {
+          "title": "Astrological forecast 2025",
+          "excerpt": "How to read collective trends through one planet for each sign.",
+          "href": "https://virgoschool.com/astrologicheskij-prognoz-na-2021god/",
+          "tag": "Forecast"
+        },
+        {
+          "title": "Astrology and its possibilities",
+          "excerpt": "Why astrology is a science of connections between cosmos and human life.",
+          "href": "https://virgoschool.com/astrologija-i-ee-vozmozhnosti/",
+          "tag": "Theory"
+        }
+      ],
+      "ctaLabel": "Open the blog",
+      "ctaHref": "/blog"
+    },
+    "payment": {
+      "eyebrow": "Payment",
+      "title": "Tuition options",
+      "cards": [
+        {
+          "label": "Bank transfer",
+          "details": ["Card 5356 5020 1774 5666 (USD)", "Recipient: Irina Abdraimova"]
+        },
+        {
+          "label": "Western Union / Zolotaya Korona",
+          "details": ["Recipient: Irina Abdraimova", "City: Astana, Kazakhstan"]
+        }
+      ],
+      "note": "Send the payment confirmation via WhatsApp so we activate access instantly."
+    },
+    "contactPanel": {
+      "eyebrow": "Contact",
+      "title": "Talk to Virgo School",
+      "description": "We reply daily from 09:00 to 22:00 Astana time.",
+      "contacts": [
+        { "label": "Email", "value": "info@virgoschool.com", "href": "mailto:info@virgoschool.com" },
+        { "label": "Phone", "value": "+7 701 533 0494", "href": "tel:+77015330494" },
+        { "label": "WhatsApp", "value": "+7 701 533 0494", "href": "https://wa.me/77015330494" }
+      ],
+      "socials": [
+        { "label": "Instagram", "href": "https://www.instagram.com/astrolog_virgo_school/" },
+        { "label": "YouTube", "href": "https://www.youtube.com/channel/UCfPRH6BUprNekGbieXtbr7A/" }
+      ],
+      "ctaLabel": "Ask a question",
+      "ctaHref": "https://wa.me/77015330494"
+    }
+  },
+  "coursesList": {
+    "title": "Courses",
+    "searchPlaceholder": "Search courses",
+    "levelLabel": "Level",
+    "categoryLabel": "Category",
+    "clearFilters": "Reset",
+    "emptyState": "No courses match your filters"
+  },
+  "coursesDetail": {
+    "curriculumHeading": "Curriculum",
+    "lifetimeAccess": "Lifetime access"
+  },
+  "checkout": {
+    "enroll": "Enroll",
+    "loginRequired": "Sign in to enroll",
+    "error": "Could not open checkout. Please try again.",
+    "pageTitle": "Complete your payment",
+    "summaryHeading": "Order summary",
+    "orderIdLabel": "Order ID",
+    "amountLabel": "Total",
+    "statusLabel": "Status",
+    "providerLabel": "Provider",
+    "testCardHeading": "Stripe test card",
+    "testCardNumberLabel": "Number",
+    "testCardExpiryLabel": "Expiry",
+    "testCardCvcLabel": "CVC",
+    "testCardNote": "Stripe test mode accepts any future date and ZIP code.",
+    "paymentsListHeading": "Payment attempts",
+    "paymentsEmpty": "No payment attempts yet.",
+    "backToCourses": "Back to courses",
+    "supportNote": "Need help? Email hello@virgoschool.com",
+    "providerStripe": "Stripe Checkout",
+    "providerYooKassa": "YooKassa",
+    "providerCloudPayments": "CloudPayments",
+    "providerManual": "Manual payment",
+    "statusPending": "Awaiting payment",
+    "statusProcessing": "Processing",
+    "statusPaid": "Paid",
+    "statusFailed": "Failed",
+    "instructionsStripeTitle": "Stripe test instructions",
+    "instructionsStripeSteps": [
+      "Use the test card below to simulate a successful charge.",
+      "Enter any cardholder name and a future expiration date.",
+      "Submit payment to be redirected back to Virgo School."
+    ],
+    "instructionsYooKassaTitle": "Pay with YooKassa",
+    "instructionsYooKassaSteps": [
+      "Follow the link to open the secure YooKassa checkout page.",
+      "Choose SBP, bank card, or wallet and complete the payment in test mode.",
+      "Come back to Virgo School to refresh your order status."
+    ],
+    "instructionsYooKassaCta": "Open YooKassa checkout",
+    "instructionsCloudPaymentsTitle": "Pay with CloudPayments",
+    "instructionsCloudPaymentsSteps": [
+      "Open the CloudPayments widget to pay with card or Apple/Google Pay.",
+      "Use the generated link in a new tab; the invoice stays active for 30 minutes.",
+      "Keep this Virgo School tab open so we can sync the confirmation automatically."
+    ],
+    "instructionsCloudPaymentsCta": "Open CloudPayments page",
+    "instructionsGenericTitle": "Manual payment",
+    "instructionsGenericStep": "Contact support to finish this payment manually.",
+    "subscriptionHeading": "Choose a payment option",
+    "subscriptionOneTimeLabel": "One-time payment",
+    "subscriptionOneTimeDescription": "Pay once and keep lifetime access.",
+    "subscriptionPlansLoading": "Loading installment plans...",
+    "subscriptionPlansError": "We couldn't load subscription plans right now.",
+    "subscriptionPlansEmpty": "Installment plans will appear here soon.",
+    "subscriptionSetupFeeLabel": "Setup fee"
+  },
+  "account": {
+    "heading": "Account",
+    "progressHeading": "Learning progress",
+    "progressEmpty": "You have not started any lessons yet.",
+    "nextLessonLabel": "Next lesson",
+    "resumeCta": "Continue",
+    "lessonCountLabel": "{completed}/{total} lessons",
+    "completedCourse": "You’ve completed every lesson in this course.",
+    "emptyStateEyebrow": "Get started",
+    "emptyStateTitle": "Launch your learning journey",
+    "emptyStateDescription": "Enroll in your first course to unlock personalized widgets and progress tracking.",
+    "emptyStateCta": "Browse courses",
+    "progressStatsEyebrow": "Your progress",
+    "progressStatsTitle": "{percent}% complete",
+    "progressStatsDescription": "{completed} lessons finished across {active} courses",
+    "metricsHeading": "Learning metrics",
+    "metricsCompletedLabel": "Lessons completed",
+    "metricsWatchTimeLabel": "Minutes watched",
+    "metricsActiveLabel": "Active courses",
+    "metricsQuizLabel": "Quizzes passed",
+    "certificatesHeading": "Certificates",
+    "certificatesDescription": "Download official proof for every completed program.",
+    "certificatesEmpty": "Certificates will appear here after you complete a course.",
+    "certificateIssuedLabel": "Issued",
+    "certificateDownloadLabel": "Download PDF",
+    "certificatesUploadTitle": "Add your external certificates",
+    "certificatesUploadSubtitle": "Upload a PDF proof to store every credential alongside Virgo programs.",
+    "certificatesUploadDrop": "Drop your PDF here",
+    "certificatesUploadButton": "Choose file",
+    "certificatesUploadHint": "PDF only · up to 15 MB",
+    "certificatesUploadStatusReady": "Ready to upload",
+    "certificatesUploadStatusUploading": "Uploading",
+    "certificatesUploadStatusSuccess": "Certificate uploaded",
+    "certificatesUploadStatusError": "Upload failed. Try again.",
+    "certificatesUploadErrorType": "Only PDF files are supported.",
+    "certificatesUploadErrorSize": "File is too large. Max 15 MB.",
+    "offlineTitle": "Offline mode",
+    "offlineDescription": "You're offline. Widgets may show cached data until the connection returns.",
+    "offlineRetry": "Check connection",
+    "lessonLocked": {
+      "label": "Lesson locked",
+      "drip": "Unlocks {date}",
+      "dripFallback": "Waiting for the module to open.",
+      "prerequisite": "Complete “{module}” first.",
+      "prerequisiteFallback": "Finish the prior module.",
+      "cta": "Locked"
+    },
+    "billing": {
+      "heading": "Billing & subscriptions",
+      "description": "Manage upcoming payments, refunds, and subscription status.",
+      "empty": "You don't have payments yet.",
+      "courseLabel": "Program",
+      "courseFallback": "Course enrollment",
+      "statusLabel": "Order status",
+      "createdAtLabel": "Created",
+      "subscriptionLabel": "Subscription",
+      "nextChargeLabel": "Next charge",
+      "cancellationScheduled": "Cancellation scheduled for {date}.",
+      "paymentsHeading": "Payment history",
+      "paymentsEmpty": "No payment attempts yet.",
+      "notAvailable": "—",
+      "actions": {
+        "cancelOrder": "Cancel order",
+        "cancelSubscription": "Cancel subscription",
+        "refund": "Request refund",
+        "processing": "Processing…",
+        "success": "Request sent. We'll notify you by email.",
+        "error": "Unable to update order. Try again."
+      },
+      "paymentStatus": {
+        "paid": "Paid",
+        "pending": "Pending",
+        "failed": "Failed",
+        "refunded": "Refunded"
+      },
+      "orderStatus": {
+        "pending": "Pending",
+        "requiresAction": "Action required",
+        "completed": "Completed",
+        "canceled": "Canceled",
+        "refunded": "Refunded"
+      },
+      "subscriptionStatus": {
+        "trialing": "Trialing",
+        "active": "Active",
+        "pastDue": "Past due",
+        "canceled": "Canceled"
+      },
+      "types": {
+        "oneTime": "One-time payment",
+        "subscription": "Subscription"
+      },
+      "profile": {
+        "title": "Billing details",
+        "description": "We use these details for invoices, receipts, and refunds.",
+        "updatedLabel": "Updated {date}",
+        "updatedFallback": "Not saved yet",
+        "submitLabel": "Save details",
+        "success": "Details saved",
+        "error": "We couldn’t save your details. Try again.",
+        "fields": {
+          "fullName": "Full name / contact",
+          "email": "Billing email",
+          "companyName": "Company or sole proprietor",
+          "taxId": "Tax ID / VAT",
+          "address": "Legal address",
+          "phone": "Phone number"
+        }
+      },
+      "invoice": {
+        "heading": "Invoice & receipt",
+        "notRequested": "No invoice requested yet",
+        "requestedAt": "Requested {date}",
+        "notesLabel": "Note for accounting",
+        "notesPlaceholder": "Add a PO number, contract ID, or instructions",
+        "request": "Request invoice",
+        "refresh": "Refresh invoice",
+        "download": "Download PDF",
+        "success": "Request sent. We'll email you once it is ready.",
+        "error": "We couldn't request the invoice. Try again later.",
+        "requiresProfile": "Fill in your billing details above to request an invoice.",
+        "status": {
+          "pending": "Preparing document",
+          "issued": "Ready to download",
+          "failed": "Issue detected"
+        }
+      }
+    }
+  },
+  "lessonPlayer": {
+    "videoFallback": "Video will be available soon.",
+    "attachments": "Resources",
+    "markComplete": "Mark as completed",
+    "markInProgress": "Save progress",
+    "backLabel": "Back to dashboard",
+    "statusLabel": "Current status",
+    "offlineTitle": "You're offline",
+    "offlineDescription": "Video playback and attachments need an internet connection. Progress will sync once you reconnect.",
+    "offlineRetry": "Try again",
+    "status": {
+      "not_started": "Not started",
+      "in_progress": "In progress",
+      "completed": "Completed"
+    },
+    "quizHeading": "Lesson quiz",
+    "quizDescription": "Test your knowledge to lock in the module.",
+    "quizCta": "Start quiz",
+    "quizUnavailable": "Quiz will be available soon.",
+    "quizPageTitle": "Quiz coming soon",
+    "quizPageDescription": "We are finishing the final questions for this lesson. You will be notified as soon as the quiz is live.",
+    "quizBackToLesson": "Back to lesson",
+    "locked": {
+      "title": "Lesson is locked",
+      "description": "This module opens later according to the cohort schedule or prerequisite rules.",
+      "dripTitle": "Release schedule",
+      "dripSubtitle": "The module unlocks on {date}.",
+      "dripFallback": "The module will unlock automatically once the schedule is updated.",
+      "prerequisiteTitle": "Complete the previous module first",
+      "prerequisiteSubtitle": "Finish “{module}” to unlock this lesson.",
+      "prerequisiteFallback": "Finish the previous content to continue.",
+      "genericReason": "Contact your coach if you think you should already have access.",
+      "backCta": "Return to course"
+    }
+  },
+  "lessonQuiz": {
+    "scoreLabel": "Score",
+    "passScoreLabel": "Pass score",
+    "attemptsLabel": "Attempts",
+    "attemptsUnlimited": "Unlimited",
+    "attemptsUsed": "{used}/{limit} used",
+    "attemptsRemaining": "{count} remaining",
+    "historyHeading": "Attempt history",
+    "noAttempts": "You have not taken this quiz yet.",
+    "submitLabel": "Submit answers",
+    "submitSuccess": "Attempt saved. Review the results below.",
+    "submitFailure": "Attempt saved. Review the answer key and try again.",
+    "submitError": "We could not submit the quiz. Please try again.",
+    "selectAnswerError": "Answer every question before submitting.",
+    "statusPassed": "Passed",
+    "statusFailed": "Failed",
+    "limitReached": "You have used all attempts for this quiz.",
+    "questionLabel": "Question {index}",
+    "singleChoiceHint": "Choose one answer.",
+    "multiChoiceHint": "Choose one or more answers.",
+    "lastAttemptLabel": "Latest attempt",
+    "attemptLabel": "Attempt #{count}",
+    "focusModeEnter": "Enter focus mode",
+    "focusModeExit": "Exit focus mode",
+    "focusHintTitle": "Focus reminder",
+    "focusHintTip": "Turn on focus mode to minimize distractions and keep the timer pinned on screen.",
+    "focusHintActive": "Focus mode is on. Stay in fullscreen and keep this tab visible so the attempt stays valid.",
+    "focusHintLost": "You exited focus mode. Re-enter fullscreen to stay on pace before submitting.",
+    "focusHintHidden": "This tab is hidden. Return to the quiz to avoid losing progress.",
+    "timerLabel": "Timer",
+    "timerHint": "Stay focused — the timer keeps running even in other tabs.",
+    "timerExpired": "Time is up. Start a new attempt to continue.",
+    "summaryHeading": "Latest result",
+    "summaryScoreLabel": "Score: {score}%",
+    "summaryAnswersLabel": "{correct}/{total} correct answers",
+    "summaryStatus": "Status: {status}",
+    "summaryCta": "Review questions",
+    "reportHeading": "Attempt report",
+    "reportScoreLabel": "Score",
+    "reportTimeLabel": "Time spent",
+    "reportTimeHint": "Finish before the timer expires to avoid an auto-fail.",
+    "reportTimeFallback": "Not tracked",
+    "reportSubmittedLabel": "Submitted",
+    "reportTip": "Need a better score? Review the breakdown before your next try.",
+    "reportRetakeCta": "Start another attempt",
+    "autoSubmitMessage": "Time is up. We submitted the answers you selected.",
+    "leaveWarningTitle": "Unsaved answers",
+    "leaveWarning": "Your selections stay local until you submit. Don’t close this tab or you’ll lose the attempt.",
+    "navigatorHeading": "Questions",
+    "navigatorSummary": "{answered}/{total} answered",
+    "navigatorAnswered": "Answered",
+    "navigatorUnanswered": "Pending",
+    "reviewHeading": "Question breakdown",
+    "reviewStatusCorrect": "Correct",
+    "reviewStatusIncorrect": "Incorrect",
+    "reviewStatusSkipped": "Not answered",
+    "reviewSelectedLabel": "Your answer",
+    "reviewCorrectLabel": "Answer key",
+    "reviewEmptyAnswer": "No answer selected.",
+    "reviewExplanationLabel": "Explanation"
+  },
+  "about": {
+    "title": "About",
+    "intro": "Virgo School helps creatives grow careers in digital industries",
+    "missionTitle": "Mission",
+    "missionBody": "We blend creativity and technology with quarterly course refreshes and mentors still active in top studios.",
+    "methodTitle": "Method",
+    "methodDescription": "Every track mixes strategy, tooling, and soft skills.",
+    "methodHighlights": [
+      "Hybrid learning: live seminars + on-demand modules",
+      "One-on-one mentorship every two weeks",
+      "Real briefs sourced from partner companies"
+    ],
+    "mentorsTitle": "Mentors & partners",
+    "mentorsBody": "40+ experts across design, production, marketing, and game development.",
+    "ctaLabel": "Find a course",
+    "ctaDescription": "Share your goals and receive a personalized plan within 24 hours.",
+    "stats": [
+      { "value": "40+", "label": "Mentors on the platform" },
+      { "value": "1.2k", "label": "Graduates" },
+      { "value": "12", "label": "Partner studios" }
+    ]
+  },
+  "servicesPage": {
+    "title": "Astrology services",
+    "intro": "Individual consultations from Virgo School mentors help you make timely decisions about relationships, business, and relocation.",
+    "cards": [
+      {
+        "title": "Synastry astrology",
+        "description": "Compatibility analysis that compares natal charts to highlight strengths, risks, and financial dynamics.",
+        "duration": "Format: 90-minute Zoom + PDF conclusion",
+        "price": "Fee: $150",
+        "features": [
+          "Psychological, behavioral, and financial compatibility",
+          "Forecast for the next 12 months",
+          "Advice for harmonizing relationships"
+        ],
+        "ctaLabel": "Book synastry",
+        "href": "https://virgoschool.com/sinastricheskaja-astrologija/"
+      },
+      {
+        "title": "Horary astrology",
+        "description": "Get a precise answer to an urgent question regarding deals, travel, or personal choices.",
+        "duration": "Format: written report within 48 hours",
+        "price": "Fee: $120",
+        "features": [
+          "Question clarification with the astrologer",
+          "Detailed chart interpretation",
+          "Next-step recommendations"
+        ],
+        "ctaLabel": "Order horary chart",
+        "href": "https://virgoschool.com/uslugi-astrologa-virgo/"
+      },
+      {
+        "title": "Rectification table",
+        "description": "We refine the exact birth time using documented events so future forecasts become accurate.",
+        "duration": "Requires 10–12 life milestones with dates",
+        "price": "Fee: $180",
+        "features": [
+          "Custom table to document events",
+          "Verification of the natal chart",
+          "Consultation on the updated data"
+        ],
+        "ctaLabel": "Request rectification",
+        "href": "https://virgoschool.com/usluga-tablica-dlja-rektifikacii/"
+      }
+    ],
+    "note": "Write to WhatsApp +7 701 533 0494 to reserve the slot and receive preparation instructions."
+  },
+  "applyPage": {
+    "title": "How to apply",
+    "intro": "Follow the steps below to join Virgo School. Enrollment is open year-round.",
+    "steps": [
+      {
+        "title": "Send a message",
+        "description": "Contact us via WhatsApp or email info@virgoschool.com and tell us about your goals."
+      },
+      {
+        "title": "Pick a module",
+        "description": "We evaluate your level and recommend the base, compatibility, or forecasting program."
+      },
+      {
+        "title": "Confirm payment",
+        "description": "Pay for one module ($150) or the full program and send the receipt for instant confirmation."
+      },
+      {
+        "title": "Start learning",
+        "description": "Within 24 hours you receive access to the platform, chat, and upcoming webinar schedule."
+      }
+    ],
+    "faq": {
+      "title": "Program overview",
+      "items": [
+        {
+          "question": "What does the base course include?",
+          "answer": "History of astrology, cosmogram, planetology, aspects, and practice on real charts across six modules."
+        },
+        {
+          "question": "How often are live sessions?",
+          "answer": "Three times per week plus additional webinars when questions accumulate."
+        },
+        {
+          "question": "Can I study while working?",
+          "answer": "Yes. Lessons are on demand, and you can ask questions in chat at any time."
+        }
+      ]
+    },
+    "payment": {
+      "title": "Tuition per program",
+      "items": [
+        { "label": "Astropsychology · Cosmogram", "value": "6 modules · $150 each / $810 full" },
+        { "label": "Compatibility Astrology", "value": "$160 · 1 module" },
+        { "label": "Horoscope · House connections", "value": "7 modules · $150 each / $945 full" }
+      ]
+    },
+    "contactCta": {
+      "label": "Write on WhatsApp",
+      "href": "https://wa.me/77015330494",
+      "caption": "We answer the same day"
+    }
+  },
+  "blogPage": {
+    "title": "Astrology journal",
+    "intro": "Read long-form research, theory, and practice notes from Virgo School.",
+    "posts": [
+      {
+        "title": "Yin and Yang in astrology",
+        "excerpt": "How energy balance influences synastry and natal interpretations.",
+        "href": "https://virgoschool.com/in-i-jan-v-astrologii/",
+        "category": "Theory"
+      },
+      {
+        "title": "Four elements",
+        "excerpt": "Video lecture about elements and how they reveal temperament.",
+        "href": "https://virgoschool.com/chetyre-stihii-v-astrologii/",
+        "category": "Video"
+      },
+      {
+        "title": "Natal chart",
+        "excerpt": "Why relocation impacts your destiny and how to read natal maps.",
+        "href": "https://virgoschool.com/natalnaja-karta/",
+        "category": "Guide"
+      },
+      {
+        "title": "Astrology forecast",
+        "excerpt": "Key transits to monitor in the coming year.",
+        "href": "https://virgoschool.com/astrologicheskij-prognoz-na-2021god/",
+        "category": "Forecast"
+      }
+    ],
+    "ctaLabel": "Visit Virgo blog"
+  },
+  "seo": {
+    "home": {
+      "title": "Virgo School — Classical astrology courses and consultations",
+      "description": "Virgo School offers online astrology education, webinars, and services from Irina Abdraimova."
+    },
+    "about": {
+      "title": "About Virgo School — Teacher Irina Abdraimova and methodology",
+      "description": "Discover how Virgo School teaches classical western astrology through structured modules and mentorship."
+    },
+    "courses": {
+      "title": "Virgo School Courses — Astropsychology, synastry, forecasting",
+      "description": "Compare Virgo School programs, module timelines, and tuition to choose your next step in astrology."
+    },
+    "services": {
+      "title": "Virgo School Services — Synastry, Horary, Rectification",
+      "description": "Book consultations from Virgo School mentors: synastry analysis, horary questions, rectification, and more."
+    },
+    "apply": {
+      "title": "Apply to Virgo School — Enrollment and tuition",
+      "description": "Follow the official steps to join Virgo School, pay for modules, and receive access to the learning platform."
+    },
+    "blog": {
+      "title": "Virgo School Blog — Articles about astrology",
+      "description": "Read Yin and Yang, elemental theory, natal chart guides, and forecasts from Virgo School mentors."
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "noEmitOnError": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "module": "ESNext",
+    "target": "ES2021"
+  },
+  "include": ["src"],
+  "exclude": ["dist"]
+}

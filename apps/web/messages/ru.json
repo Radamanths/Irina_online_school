@@ -1,0 +1,687 @@
+{
+  "common": {
+    "brandName": "Virgo School",
+    "navigation": {
+      "primary": [
+        { "label": "Курсы", "path": "courses" },
+        { "label": "Услуги", "path": "services" },
+        { "label": "О школе", "path": "about" },
+        { "label": "Блог", "path": "blog" }
+      ],
+      "cta": { "label": "Записаться", "path": "apply" }
+    },
+    "footer": {
+      "tagline": "Классическая западная астрология онлайн с 2010 года",
+      "contact": "info@virgoschool.com",
+      "legal": "© 2025 Virgo School. Все права защищены.",
+      "phone": "+7 701 533 0494",
+      "whatsapp": "+7 701 533 0494",
+      "address": "Казахстан, Астана · дистанционные потоки по всему миру",
+      "cardLabel": "Перевод на карту",
+      "cardNumber": "5356 5020 1774 5666 (USD)",
+      "paymentNote": "Western Union · Золотая Корона · получатель Ирина Абдраимова",
+      "contactLabel": "Контакты",
+      "paymentLabel": "Оплата",
+      "socialLabel": "Мы в соцсетях",
+      "socials": [
+        { "label": "Instagram", "href": "https://www.instagram.com/astrolog_virgo_school/" },
+        { "label": "YouTube", "href": "https://www.youtube.com/channel/UCfPRH6BUprNekGbieXtbr7A/" }
+      ]
+    }
+  },
+  "hero": {
+    "eyebrow": "Астрология в жизни и бизнесе",
+    "headline": "Virgo School — классическая астрология онлайн",
+    "subline": "Обучаем с 2010 года: базовый курс, совместимость и прогностика в современном формате.",
+    "primaryCta": "Записаться на курс",
+    "secondaryCta": "Услуги астролога"
+  },
+  "coursesHome": {
+    "eyebrow": "Курсы",
+    "heading": "Выберите траекторию",
+    "viewAll": "Все курсы",
+    "detailCta": "Подробнее"
+  },
+  "home": {
+    "metrics": {
+      "eyebrow": "цифры",
+      "title": "Virgo в фактах",
+      "description": "Школа соединяет классическую западную методологию и гибкий онлайн-формат.",
+      "items": [
+        { "value": "15+", "label": "лет обучаем астрологии" },
+        { "value": "3", "label": "программы от базы до прогностики" },
+        { "value": "700+", "label": "выпускников из СНГ и Европы" },
+        { "value": "24/7", "label": "доступ к урокам в течение года" }
+      ]
+    },
+    "webinar": {
+      "eyebrow": "Вебинар",
+      "title": "Астрология в жизни и бизнесе",
+      "description": "Посмотрите открытый урок, где Ирина Абдраимова показывает, как хорар помогает в реальных решениях.",
+      "details": [
+        "Запись и расшифровка Q&A",
+        "Бесплатный доступ сразу после регистрации"
+      ],
+      "ctaLabel": "Смотреть запись",
+      "ctaHref": "https://virgoschool.com/webinar_recording/",
+      "note": "«Природа дала астрологии возможность помогать астрономии.» — И. Кеплер"
+    },
+    "education": {
+      "eyebrow": "Virgo online school",
+      "title": "Классический подход в современном формате",
+      "description": "Virgo School объясняет законы планет научным языком — без мистики и воды.",
+      "body": "Каждый модуль — это HD‑уроки, таблицы, домашние задания и обратная связь куратора в WhatsApp.",
+      "highlights": [
+        "Основатель: дипломированный астролог Ирина Абдраимова",
+        "Наставничество и вебинары в каждом модуле",
+        "Доступ к платформе и сообществу на 12 месяцев"
+      ]
+    },
+    "programs": {
+      "eyebrow": "Обучение",
+      "title": "Программы для любого уровня",
+      "description": "Начните с космограммы или углубитесь в совместимость и прогнозирование.",
+      "cards": [
+        {
+          "name": "Астропсихология · Космограмма",
+          "subtitle": "Базовый курс",
+          "duration": "6 модулей · 6–7 месяцев",
+          "modules": "История, космограмма, планетология, практика",
+          "price": "$150 за модуль · $810 весь курс",
+          "href": "https://virgoschool.com/kursy/blok-1/?tab=tab-curriculum",
+          "linkLabel": "Программа"
+        },
+        {
+          "name": "Астрология совместимости",
+          "subtitle": "Практика для продолжающих",
+          "duration": "1 модуль · 1 месяц",
+          "modules": "Психология, поведение, финансы, интимность",
+          "price": "$160 за модуль",
+          "href": "https://virgoschool.com/kursy/modul-7/?tab=tab-curriculum",
+          "linkLabel": "Программа"
+        },
+        {
+          "name": "Гороскоп · алгоритм связей домов",
+          "subtitle": "Прогностический блок",
+          "duration": "7 модулей · 7 месяцев",
+          "modules": "Натальная карта, дома, релокация",
+          "price": "$150 за модуль · $945 весь курс",
+          "href": "https://virgoschool.com/kursy/goroskop-algoritm-svjazej-domov/",
+          "linkLabel": "Программа"
+        }
+      ],
+      "ctaLabel": "Все курсы"
+    },
+    "astroServices": {
+      "eyebrow": "Услуги",
+      "title": "Консультации астрологов Virgo",
+      "description": "Все консультанты — выпускники школы под кураторством Ирины Абдраимовой.",
+      "cards": [
+        {
+          "name": "Синастрия",
+          "description": "Анализ совместимости для пары, семьи или делового союза.",
+          "duration": "60–90 минут онлайн + PDF вывод",
+          "price": "Стоимость: $150",
+          "href": "https://virgoschool.com/sinastricheskaja-astrologija/"
+        },
+        {
+          "name": "Хорарный вопрос",
+          "description": "Точный ответ на конкретную ситуацию в течение 48 часов.",
+          "duration": "Письменный отчёт + созвон 20 минут",
+          "price": "Стоимость: $120",
+          "href": "https://virgoschool.com/uslugi-astrologa-virgo/"
+        },
+        {
+          "name": "Таблица для ректификации",
+          "description": "Уточняем время рождения по ключевым событиям жизни.",
+          "duration": "Необходимы 10–12 датированных событий",
+          "price": "Стоимость: $180",
+          "href": "https://virgoschool.com/usluga-tablica-dlja-rektifikacii/"
+        }
+      ],
+      "ctaLabel": "Все услуги",
+      "ctaHref": "/services"
+    },
+    "application": {
+      "eyebrow": "Поступление",
+      "title": "Как проходит обучение",
+      "description": "Каждый модуль — 12 академических часов, три занятия в неделю.",
+      "steps": [
+        { "title": "Оставьте заявку", "description": "Напишите в WhatsApp +7 701 533 0494 или на info@virgoschool.com." },
+        { "title": "Подберём программу", "description": "Поможем выбрать уровень и дату старта." },
+        { "title": "Оплатите модуль", "description": "Переведите $150 на карту или через Western Union и отправьте чек." },
+        { "title": "Получите доступ", "description": "В течение суток придёт логин от платформы, уроки и чат с куратором." }
+      ],
+      "note": "Поддержка рядом весь год — вебинары, проверка домашних заданий и прямые эфиры."
+    },
+    "blogPreview": {
+      "eyebrow": "Журнал",
+      "title": "Свежие публикации",
+      "description": "Virgo делится аналитикой, прогнозами и теорией для студентов.",
+      "posts": [
+        {
+          "title": "Какой мир готовят для нас",
+          "excerpt": "Ирина разбирает глобальную перезагрузку и кармические уроки 2025 года.",
+          "href": "https://virgoschool.com/kakoj-mir-gotovjat-dlja-nas-ili-bolshaja-chistka-pered-perezagruzkoj/",
+          "tag": "Аналитика"
+        },
+        {
+          "title": "Астрологический прогноз",
+          "excerpt": "Как читать коллективные тенденции через одну планету для каждого знака.",
+          "href": "https://virgoschool.com/astrologicheskij-prognoz-na-2021god/",
+          "tag": "Прогноз"
+        },
+        {
+          "title": "Астрология и её возможности",
+          "excerpt": "Почему астрология — наука о связи космоса и человека.",
+          "href": "https://virgoschool.com/astrologija-i-ee-vozmozhnosti/",
+          "tag": "Теория"
+        }
+      ],
+      "ctaLabel": "Читать блог",
+      "ctaHref": "/blog"
+    },
+    "payment": {
+      "eyebrow": "Оплата",
+      "title": "Варианты оплаты",
+      "cards": [
+        {
+          "label": "Банковский перевод",
+          "details": ["Карта 5356 5020 1774 5666 (USD)", "Получатель: Ирина Абдраимова"]
+        },
+        {
+          "label": "Western Union / Золотая Корона",
+          "details": ["Получатель: Ирина Абдраимова", "Город: Астана, Казахстан"]
+        }
+      ],
+      "note": "Отправьте чек в WhatsApp, чтобы мы сразу открыли доступ."
+    },
+    "contactPanel": {
+      "eyebrow": "Контакты",
+      "title": "Напишите в Virgo School",
+      "description": "На связи ежедневно с 09:00 до 22:00 по времени Астаны.",
+      "contacts": [
+        { "label": "Email", "value": "info@virgoschool.com", "href": "mailto:info@virgoschool.com" },
+        { "label": "Телефон", "value": "+7 701 533 0494", "href": "tel:+77015330494" },
+        { "label": "WhatsApp", "value": "+7 701 533 0494", "href": "https://wa.me/77015330494" }
+      ],
+      "socials": [
+        { "label": "Instagram", "href": "https://www.instagram.com/astrolog_virgo_school/" },
+        { "label": "YouTube", "href": "https://www.youtube.com/channel/UCfPRH6BUprNekGbieXtbr7A/" }
+      ],
+      "ctaLabel": "Задать вопрос",
+      "ctaHref": "https://wa.me/77015330494"
+    }
+  },
+  "coursesList": {
+    "title": "Курсы",
+    "searchPlaceholder": "Поиск по курсам",
+    "levelLabel": "Уровень",
+    "categoryLabel": "Категория",
+    "clearFilters": "Сбросить",
+    "emptyState": "Нет курсов по выбранным фильтрам"
+  },
+  "coursesDetail": {
+    "curriculumHeading": "Программа",
+    "lifetimeAccess": "Доступ навсегда"
+  },
+  "checkout": {
+    "enroll": "Записаться",
+    "loginRequired": "Войдите, чтобы записаться",
+    "error": "Не удалось открыть оплату. Попробуйте ещё раз.",
+    "pageTitle": "Оплатите заказ",
+    "summaryHeading": "Сводка заказа",
+    "orderIdLabel": "Номер заказа",
+    "amountLabel": "Итого",
+    "statusLabel": "Статус",
+    "providerLabel": "Провайдер",
+    "testCardHeading": "Тестовая карта Stripe",
+    "testCardNumberLabel": "Номер",
+    "testCardExpiryLabel": "Срок",
+    "testCardCvcLabel": "CVC",
+    "testCardNote": "В тестовом режиме Stripe примет любую будущую дату и индекс.",
+    "paymentsListHeading": "Попытки оплаты",
+    "paymentsEmpty": "Платежей ещё не было.",
+    "backToCourses": "Назад к курсам",
+    "supportNote": "Нужна помощь? Напишите на hello@virgoschool.com",
+    "providerStripe": "Stripe Checkout",
+    "providerYooKassa": "YooKassa",
+    "providerCloudPayments": "CloudPayments",
+    "providerManual": "Ручной платёж",
+    "statusPending": "Ожидает оплаты",
+    "statusProcessing": "Обрабатывается",
+    "statusPaid": "Оплачен",
+    "statusFailed": "Ошибка",
+    "instructionsStripeTitle": "Инструкция для Stripe",
+    "instructionsStripeSteps": [
+      "Используйте тестовую карту ниже, чтобы провести оплату.",
+      "Введите любое имя владельца и будущую дату.",
+      "После оплаты вы вернётесь в Virgo School."
+    ],
+    "instructionsYooKassaTitle": "Оплата через YooKassa",
+    "instructionsYooKassaSteps": [
+      "Откройте защищённую страницу YooKassa по ссылке ниже.",
+      "Выберите СБП, карту или кошелёк и завершите тестовый платёж.",
+      "Вернитесь в Virgo School, чтобы обновить статус заказа."
+    ],
+    "instructionsYooKassaCta": "Открыть YooKassa",
+    "instructionsCloudPaymentsTitle": "Оплата через CloudPayments",
+    "instructionsCloudPaymentsSteps": [
+      "Откройте виджет CloudPayments и оплатите картой или Apple/Google Pay.",
+      "Ссылка откроется в новой вкладке и активна 30 минут.",
+      "Держите эту вкладку Virgo School открытой — подтверждение синхронизируется автоматически."
+    ],
+    "instructionsCloudPaymentsCta": "Открыть CloudPayments",
+    "instructionsGenericTitle": "Ручной платёж",
+    "instructionsGenericStep": "Свяжитесь с поддержкой, чтобы завершить оплату вручную.",
+    "subscriptionHeading": "Выберите формат оплаты",
+    "subscriptionOneTimeLabel": "Единовременный платёж",
+    "subscriptionOneTimeDescription": "Оплатите один раз и получите доступ навсегда.",
+    "subscriptionPlansLoading": "Загружаем планы рассрочки...",
+    "subscriptionPlansError": "Не удалось загрузить планы рассрочки.",
+    "subscriptionPlansEmpty": "Здесь появятся подписки и рассрочки.",
+    "subscriptionSetupFeeLabel": "Стартовый платёж"
+  },
+  "account": {
+    "heading": "Личный кабинет",
+    "progressHeading": "Прогресс обучения",
+    "progressEmpty": "Вы еще не начали занятия.",
+    "nextLessonLabel": "Следующий урок",
+    "resumeCta": "Продолжить",
+    "lessonCountLabel": "{completed}/{total} уроков",
+    "completedCourse": "Вы прошли все уроки этого курса.",
+    "emptyStateEyebrow": "Начать обучение",
+    "emptyStateTitle": "Запустите свою траекторию",
+    "emptyStateDescription": "Запишитесь на первый курс, чтобы увидеть персональные виджеты и прогресс.",
+    "emptyStateCta": "Смотреть курсы",
+    "progressStatsEyebrow": "Ваш прогресс",
+    "progressStatsTitle": "{percent}% пути",
+    "progressStatsDescription": "Завершено {completed} уроков в {active} курсах",
+    "metricsHeading": "Показатели обучения",
+    "metricsCompletedLabel": "Завершено уроков",
+    "metricsWatchTimeLabel": "Минут просмотра",
+    "metricsActiveLabel": "Активных курсов",
+    "metricsQuizLabel": "Пройдено квизов",
+    "certificatesHeading": "Сертификаты",
+    "certificatesDescription": "Скачайте официальные документы по завершённым программам.",
+    "certificatesEmpty": "Сертификаты появятся здесь после завершения курса.",
+    "certificateIssuedLabel": "Выдан",
+    "certificateDownloadLabel": "Скачать PDF",
+    "certificatesUploadTitle": "Добавьте внешние сертификаты",
+    "certificatesUploadSubtitle": "Загрузите PDF-подтверждение, чтобы хранить все заслуги рядом с программами Virgo.",
+    "certificatesUploadDrop": "Перетащите PDF сюда",
+    "certificatesUploadButton": "Выбрать файл",
+    "certificatesUploadHint": "Только PDF · до 15 МБ",
+    "certificatesUploadStatusReady": "Готово к загрузке",
+    "certificatesUploadStatusUploading": "Загрузка",
+    "certificatesUploadStatusSuccess": "Сертификат загружен",
+    "certificatesUploadStatusError": "Не удалось загрузить. Попробуйте ещё раз.",
+    "certificatesUploadErrorType": "Поддерживаются только PDF-файлы.",
+    "certificatesUploadErrorSize": "Слишком большой файл. Максимум 15 МБ.",
+    "offlineTitle": "Нет подключения",
+    "offlineDescription": "Вы офлайн. Виджеты могут показывать кэш до возврата сети.",
+    "offlineRetry": "Проверить связь",
+    "lessonLocked": {
+      "label": "Урок закрыт",
+      "drip": "Откроется {date}",
+      "dripFallback": "Ожидайте открытия модуля.",
+      "prerequisite": "Сначала завершите «{module}».",
+      "prerequisiteFallback": "Завершите предыдущий модуль.",
+      "cta": "Закрыто"
+    },
+    "billing": {
+      "heading": "Платежи и подписки",
+      "description": "Следите за счетами, возвратами и статусом подписки.",
+      "empty": "У вас ещё нет заказов.",
+      "courseLabel": "Программа",
+      "courseFallback": "Запись на курс",
+      "statusLabel": "Статус заказа",
+      "createdAtLabel": "Создан",
+      "subscriptionLabel": "Подписка",
+      "nextChargeLabel": "Следующее списание",
+      "cancellationScheduled": "Отмена вступит в силу {date}.",
+      "paymentsHeading": "История платежей",
+      "paymentsEmpty": "Платежи ещё не проводились.",
+      "notAvailable": "—",
+      "actions": {
+        "cancelOrder": "Отменить заказ",
+        "cancelSubscription": "Отменить подписку",
+        "refund": "Запросить возврат",
+        "processing": "Обрабатываем...",
+        "success": "Запрос отправлен. Мы сообщим по почте.",
+        "error": "Не удалось обновить заказ. Попробуйте позже."
+      },
+      "paymentStatus": {
+        "paid": "Оплачен",
+        "pending": "В ожидании",
+        "failed": "Ошибка",
+        "refunded": "Возвращён"
+      },
+      "orderStatus": {
+        "pending": "В ожидании",
+        "requiresAction": "Нужны действия",
+        "completed": "Завершён",
+        "canceled": "Отменён",
+        "refunded": "Возвращён"
+      },
+      "subscriptionStatus": {
+        "trialing": "Пробный период",
+        "active": "Активна",
+        "pastDue": "Просрочена",
+        "canceled": "Отменена"
+      },
+      "types": {
+        "oneTime": "Разовый платёж",
+        "subscription": "Подписка"
+      },
+      "profile": {
+        "title": "Реквизиты для счетов",
+        "description": "Мы используем эти данные для чеков, договоров и возвратов.",
+        "updatedLabel": "Обновлено {date}",
+        "updatedFallback": "Ещё не сохранено",
+        "submitLabel": "Сохранить реквизиты",
+        "success": "Данные сохранены",
+        "error": "Не удалось сохранить реквизиты.",
+        "fields": {
+          "fullName": "ФИО / ответственный",
+          "email": "Email для документов",
+          "companyName": "Компания или ИП",
+          "taxId": "ИНН / VAT",
+          "address": "Юридический адрес",
+          "phone": "Телефон"
+        }
+      },
+      "invoice": {
+        "heading": "Счёт и чек",
+        "notRequested": "Счёт не запрашивался",
+        "requestedAt": "Запрошено {date}",
+        "notesLabel": "Комментарий бухгалтерии",
+        "notesPlaceholder": "Например, номер договора или реквизиты получателя",
+        "request": "Запросить счёт",
+        "refresh": "Обновить счёт",
+        "download": "Скачать PDF",
+        "success": "Запрос отправлен. Мы пришлём уведомление на почту.",
+        "error": "Не удалось запросить счёт. Попробуйте ещё раз.",
+        "requiresProfile": "Сначала заполните реквизиты, чтобы запросить счёт.",
+        "status": {
+          "pending": "Готовим документ",
+          "issued": "Готов к скачиванию",
+          "failed": "Ошибка выпуска"
+        }
+      }
+    }
+  },
+  "lessonPlayer": {
+    "videoFallback": "Видео появится позже",
+    "attachments": "Материалы",
+    "markComplete": "Отметить завершённым",
+    "markInProgress": "Сохранить прогресс",
+    "backLabel": "Назад в кабинет",
+    "statusLabel": "Текущий статус",
+    "offlineTitle": "Вы офлайн",
+    "offlineDescription": "Видео и материалы требуют подключения к интернету. Прогресс синхронизируется после возврата сети.",
+    "offlineRetry": "Повторить",
+    "status": {
+      "not_started": "Не начат",
+      "in_progress": "В процессе",
+      "completed": "Завершён"
+    },
+    "quizHeading": "Проверочный тест",
+    "quizDescription": "Закрепите материал коротким тестом по уроку.",
+    "quizCta": "Начать тест",
+    "quizUnavailable": "Тест появится позднее.",
+    "quizPageTitle": "Тест в разработке",
+    "quizPageDescription": "Мы финализируем вопросы по этому уроку. Как только всё будет готово, тест станет доступен автоматически.",
+    "quizBackToLesson": "Вернуться к уроку",
+    "locked": {
+      "title": "Урок ещё недоступен",
+      "description": "Модуль откроется позже согласно расписанию или требованиям курса.",
+      "dripTitle": "Расписание открытия",
+      "dripSubtitle": "Модуль откроется {date}.",
+      "dripFallback": "Как только кураторы обновят расписание, доступ включится автоматически.",
+      "prerequisiteTitle": "Сначала завершите предыдущий модуль",
+      "prerequisiteSubtitle": "Завершите «{module}», чтобы разблокировать урок.",
+      "prerequisiteFallback": "Завершите предыдущие материалы, чтобы двигаться дальше.",
+      "genericReason": "Если считаете, что доступ должен быть открыт, напишите куратору программы.",
+      "backCta": "Вернуться к курсу"
+    }
+  },
+  "lessonQuiz": {
+    "scoreLabel": "Результат",
+    "passScoreLabel": "Порог сдачи",
+    "attemptsLabel": "Попытки",
+    "attemptsUnlimited": "Без лимита",
+    "attemptsUsed": "{used} из {limit}",
+    "attemptsRemaining": "Осталось {count}",
+    "historyHeading": "История попыток",
+    "noAttempts": "Вы ещё не проходили этот тест.",
+    "submitLabel": "Отправить ответы",
+    "submitSuccess": "Попытка сохранена. Проверьте результаты ниже.",
+    "submitFailure": "Попытка сохранена. Посмотрите верные ответы и попробуйте снова.",
+    "submitError": "Не удалось отправить тест. Попробуйте ещё раз.",
+    "selectAnswerError": "Ответьте на все вопросы перед отправкой.",
+    "statusPassed": "Сдано",
+    "statusFailed": "Не сдано",
+    "limitReached": "Лимит попыток исчерпан.",
+    "questionLabel": "Вопрос {index}",
+    "singleChoiceHint": "Выберите один ответ.",
+    "multiChoiceHint": "Можно выбрать несколько ответов.",
+    "lastAttemptLabel": "Последняя попытка",
+    "attemptLabel": "Попытка №{count}",
+    "focusModeEnter": "Режим фокуса",
+    "focusModeExit": "Выйти из фокуса",
+    "focusHintTitle": "Фокус",
+    "focusHintTip": "Включите режим фокуса, чтобы убрать лишнее и держать таймер перед глазами.",
+    "focusHintActive": "Режим фокуса включён. Оставайтесь в полноэкранном режиме и не переключайте вкладку.",
+    "focusHintLost": "Вы вышли из фокуса. Вернитесь в полноэкранный режим, чтобы продолжить без отвлечений.",
+    "focusHintHidden": "Вкладка с тестом скрыта. Вернитесь, чтобы не потерять попытку.",
+    "timerLabel": "Таймер",
+    "timerHint": "Не отвлекайтесь — таймер продолжает идти даже при переключении вкладок.",
+    "timerExpired": "Время вышло. Начните новую попытку, чтобы продолжить тест.",
+    "summaryHeading": "Итог последней попытки",
+    "summaryScoreLabel": "Баллы: {score}%",
+    "summaryAnswersLabel": "Верно {correct} из {total}",
+    "summaryStatus": "Статус: {status}",
+    "summaryCta": "Перейти к вопросам",
+    "reportHeading": "Отчёт о попытке",
+    "reportScoreLabel": "Баллы",
+    "reportTimeLabel": "Время на тест",
+    "reportTimeHint": "Завершите до истечения таймера, иначе попытка завершится автоматически.",
+    "reportTimeFallback": "Нет данных",
+    "reportSubmittedLabel": "Отправлено",
+    "reportTip": "Хотите больше баллов? Разберите ошибки и попробуйте ещё раз.",
+    "reportRetakeCta": "Новая попытка",
+    "autoSubmitMessage": "Время вышло. Мы автоматически отправили выбранные ответы.",
+    "leaveWarningTitle": "Ответы не сохранены",
+    "leaveWarning": "Пока вы не отправите тест, ответы хранятся только на устройстве. Не закрывайте вкладку, чтобы не потерять попытку.",
+    "navigatorHeading": "Вопросы",
+    "navigatorSummary": "Отвечено {answered} из {total}",
+    "navigatorAnswered": "Готово",
+    "navigatorUnanswered": "В работе",
+    "reviewHeading": "Разбор вопросов",
+    "reviewStatusCorrect": "Верно",
+    "reviewStatusIncorrect": "Ошибка",
+    "reviewStatusSkipped": "Без ответа",
+    "reviewSelectedLabel": "Ваш ответ",
+    "reviewCorrectLabel": "Правильный ответ",
+    "reviewEmptyAnswer": "Ответ отсутствует.",
+    "reviewExplanationLabel": "Пояснение"
+  },
+  "about": {
+    "title": "О школе",
+    "intro": "Virgo School помогает построить карьеру в креативных цифровых индустриях",
+    "missionTitle": "Миссия",
+    "missionBody": "Мы создаем пространство, где креатив встречает технологию: курсы обновляются ежеквартально, а наставники приходят из действующих студий.",
+    "methodTitle": "Методология",
+    "methodDescription": "Каждый трек сочетает стратегию, инструменты и софт-скиллы.",
+    "methodHighlights": [
+      "Гибридные курсы: синхронные сессии + самостоятельные модули",
+      "Наставничество 1:1 каждые две недели",
+      "Практические брифы от партнеров индустрии"
+    ],
+    "mentorsTitle": "Наставники и партнеры",
+    "mentorsBody": "40+ экспертов из дизайна, продакшна, маркетинга и геймдева.",
+    "ctaLabel": "Подобрать курс",
+    "ctaDescription": "Расскажите о целях, и мы предложим маршрут обучения за 24 часа.",
+    "stats": [
+      { "value": "40+", "label": "Наставников на платформе" },
+      { "value": "1200", "label": "Выпускников" },
+      { "value": "12", "label": "Партнерских студий" }
+    ]
+  },
+  "servicesPage": {
+    "title": "Услуги астролога",
+    "intro": "Персональные консультации наставников Virgo School помогают принимать решения о отношениях, бизнесе и переезде.",
+    "cards": [
+      {
+        "title": "Синастрическая астрология",
+        "description": "Сравнительный анализ натальных карт, который показывает сильные стороны союза и зоны риска.",
+        "duration": "Формат: 90-минутный Zoom + PDF вывод",
+        "price": "Стоимость: $150",
+        "features": [
+          "Психологическая, поведенческая и финансовая совместимость",
+          "Прогноз на ближайшие 12 месяцев",
+          "Рекомендации по гармонизации отношений"
+        ],
+        "ctaLabel": "Записаться на синастрию",
+        "href": "https://virgoschool.com/sinastricheskaja-astrologija/"
+      },
+      {
+        "title": "Хорарная астрология",
+        "description": "Точный ответ на срочный вопрос о сделках, поездках или личных решениях.",
+        "duration": "Формат: письменный отчёт в течение 48 часов",
+        "price": "Стоимость: $120",
+        "features": [
+          "Уточнение вопроса с астрологом",
+          "Детальная интерпретация хорарной карты",
+          "Рекомендации по дальнейшим действиям"
+        ],
+        "ctaLabel": "Заказать хорар",
+        "href": "https://virgoschool.com/uslugi-astrologa-virgo/"
+      },
+      {
+        "title": "Таблица для ректификации",
+        "description": "Уточняем точное время рождения по задокументированным событиям, чтобы прогнозы стали точными.",
+        "duration": "Нужно 10–12 значимых событий с датами",
+        "price": "Стоимость: $180",
+        "features": [
+          "Индивидуальная таблица для фиксации событий",
+          "Проверка натальной карты",
+          "Консультация по обновлённым данным"
+        ],
+        "ctaLabel": "Запросить ректификацию",
+        "href": "https://virgoschool.com/usluga-tablica-dlja-rektifikacii/"
+      }
+    ],
+    "note": "Напишите в WhatsApp +7 701 533 0494, чтобы занять слот и получить инструкцию по подготовке."
+  },
+  "applyPage": {
+    "title": "Как поступить",
+    "intro": "Следуйте шагам, чтобы присоединиться к Virgo School. Набор открыт круглый год.",
+    "steps": [
+      {
+        "title": "Напишите нам",
+        "description": "Свяжитесь в WhatsApp или по почте info@virgoschool.com и расскажите о целях."
+      },
+      {
+        "title": "Подберите модуль",
+        "description": "Мы оценим уровень и посоветуем базу, совместимость или прогностику."
+      },
+      {
+        "title": "Подтвердите оплату",
+        "description": "Оплатите один модуль ($150) или весь курс и отправьте чек для моментального доступа."
+      },
+      {
+        "title": "Начните обучение",
+        "description": "В течение 24 часов получите доступ к платформе, чату и расписанию вебинаров."
+      }
+    ],
+    "faq": {
+      "title": "Программа",
+      "items": [
+        {
+          "question": "Что входит в базовый курс?",
+          "answer": "История астрологии, космограмма, планетология, аспекты и практика на реальных картах в шести модулях."
+        },
+        {
+          "question": "Как часто проходят живые занятия?",
+          "answer": "Три раза в неделю плюс дополнительные вебинары по накопившимся вопросам."
+        },
+        {
+          "question": "Можно ли совмещать с работой?",
+          "answer": "Да. Уроки доступны по запросу, а вопросы можно задавать в чате в любое время."
+        }
+      ]
+    },
+    "payment": {
+      "title": "Стоимость программ",
+      "items": [
+        { "label": "Астропсихология · Космограмма", "value": "6 модулей · $150 каждый / $810 весь курс" },
+        { "label": "Астрология совместимости", "value": "$160 · 1 модуль" },
+        { "label": "Гороскоп · связи домов", "value": "7 модулей · $150 каждый / $945 весь курс" }
+      ]
+    },
+    "contactCta": {
+      "label": "Написать в WhatsApp",
+      "href": "https://wa.me/77015330494",
+      "caption": "Отвечаем в тот же день"
+    }
+  },
+  "blogPage": {
+    "title": "Журнал астрологии",
+    "intro": "Читайте исследования, теорию и практику от команды Virgo School.",
+    "posts": [
+      {
+        "title": "Инь и Ян в астрологии",
+        "excerpt": "Как баланс энергий влияет на трактовку натальных и синастрических карт.",
+        "href": "https://virgoschool.com/in-i-jan-v-astrologii/",
+        "category": "Теория"
+      },
+      {
+        "title": "Четыре стихии",
+        "excerpt": "Видеолекция о стихиях и темпераменте.",
+        "href": "https://virgoschool.com/chetyre-stihii-v-astrologii/",
+        "category": "Видео"
+      },
+      {
+        "title": "Натальная карта",
+        "excerpt": "Почему релокация меняет сценарии судьбы и как читать натал.",
+        "href": "https://virgoschool.com/natalnaja-karta/",
+        "category": "Гайд"
+      },
+      {
+        "title": "Астрологический прогноз",
+        "excerpt": "Главные транзиты ближайшего года.",
+        "href": "https://virgoschool.com/astrologicheskij-prognoz-na-2021god/",
+        "category": "Прогноз"
+      }
+    ],
+    "ctaLabel": "Перейти в блог"
+  },
+  "seo": {
+    "home": {
+      "title": "Virgo School — классические курсы и консультации по астрологии",
+      "description": "Virgo School проводит онлайн-обучение и консультации по методике Ирины Абдраимовой."
+    },
+    "about": {
+      "title": "О Virgo School — команда и методология",
+      "description": "Узнайте, как Virgo School преподаёт западную астрологию через структурированные модули и наставничество."
+    },
+    "courses": {
+      "title": "Курсы Virgo School — база, совместимость, прогностика",
+      "description": "Сравните программы, сроки и стоимость модулей Virgo School, чтобы выбрать следующую ступень."
+    },
+    "services": {
+      "title": "Услуги Virgo School — синастрия, хорар, ректификация",
+      "description": "Запишитесь на консультацию у наставников Virgo School: синастрия, хорарные вопросы, ректификация."
+    },
+    "apply": {
+      "title": "Поступить в Virgo School — шаги и оплата",
+      "description": "Следуйте официальным шагам: заявка, подбор программы, оплата модулей и доступ к платформе."
+    },
+    "blog": {
+      "title": "Блог Virgo School — статьи по астрологии",
+      "description": "Читайте материалы про Инь и Ян, стихии, натальные карты и прогнозы от команды Virgo School."
+    }
+  }
+}

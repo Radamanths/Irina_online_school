@@ -1,0 +1,335 @@
+openapi: 3.1.0
+info:
+  title: Virgo School LMS API
+  version: 0.1.0
+  description: |
+    Unified API surface for the Virgo platform.
+    Covers LMS data (courses, modules, lessons, progress, certificates) and commerce endpoints (orders, payments).
+  contact:
+    email: platform@virgo.school
+servers:
+  - url: https://api.virgo.school
+    description: Production
+  - url: https://staging.api.virgo.school
+    description: Staging
+  - url: http://localhost:4000
+    description: Local development
+security:
+  - bearerAuth: []
+tags:
+  - name: Courses
+  - name: Modules
+  - name: Lessons
+  - name: Progress
+  - name: Certificates
+  - name: Payments
+paths:
+  /courses:
+    get:
+      tags: [Courses]
+      summary: List public course catalog
+      parameters:
+        - in: query
+          name: language
+          schema:
+            type: string
+            enum: [ru, en]
+          description: Optional locale filter
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Course"
+  /courses/{courseId}:
+    get:
+      tags: [Courses]
+      summary: Get detailed course information
+      parameters:
+        - $ref: "#/components/parameters/CourseId"
+      responses:
+        "200":
+          description: Course found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CourseDetail"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /modules/{moduleId}:
+    get:
+      tags: [Modules]
+      summary: Get module with nested lessons
+      parameters:
+        - $ref: "#/components/parameters/ModuleId"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Module"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /lessons/{lessonId}:
+    get:
+      tags: [Lessons]
+      summary: Get lesson content
+      parameters:
+        - $ref: "#/components/parameters/LessonId"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Lesson"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /students/{studentId}/progress:
+    get:
+      tags: [Progress]
+      summary: Read progress for every enrolled course
+      parameters:
+        - $ref: "#/components/parameters/StudentId"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProgressSnapshot"
+    patch:
+      tags: [Progress]
+      summary: Update lesson completion state
+      parameters:
+        - $ref: "#/components/parameters/StudentId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProgressPatch"
+      responses:
+        "204":
+          description: Updated
+  /students/{studentId}/certificates:
+    get:
+      tags: [Certificates]
+      summary: List issued certificates for student
+      parameters:
+        - $ref: "#/components/parameters/StudentId"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Certificate"
+  /orders:
+    post:
+      tags: [Payments]
+      summary: Create checkout session
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrderRequest"
+      responses:
+        "201":
+          description: Order created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Order"
+  /payments/webhooks/stripe:
+    post:
+      tags: [Payments]
+      summary: Stripe webhook receiver
+      responses:
+        "200":
+          description: Acknowledge event
+  /payments/webhooks/yookassa:
+    post:
+      tags: [Payments]
+      summary: YooKassa webhook receiver
+      responses:
+        "200":
+          description: Acknowledge event
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    CourseId:
+      name: courseId
+      in: path
+      required: true
+      schema:
+        type: string
+    ModuleId:
+      name: moduleId
+      in: path
+      required: true
+      schema:
+        type: string
+    LessonId:
+      name: lessonId
+      in: path
+      required: true
+      schema:
+        type: string
+    StudentId:
+      name: studentId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    NotFound:
+      description: Entity not found
+  schemas:
+    Course:
+      type: object
+      required: [id, title, language, shortDescription]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        language:
+          type: string
+          enum: [ru, en]
+        shortDescription:
+          type: string
+        durationWeeks:
+          type: integer
+        tags:
+          type: array
+          items:
+            type: string
+    CourseDetail:
+      allOf:
+        - $ref: "#/components/schemas/Course"
+        - type: object
+          properties:
+            mentor:
+              type: string
+            cohort:
+              type: string
+            timezone:
+              type: string
+            format:
+              type: string
+            modules:
+              type: array
+              items:
+                $ref: "#/components/schemas/Module"
+    Module:
+      type: object
+      required: [id, title, lessons]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        lessons:
+          type: array
+          items:
+            $ref: "#/components/schemas/Lesson"
+    Lesson:
+      type: object
+      required: [id, title, type]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+          enum: [video, article, quiz]
+        duration:
+          type: integer
+          description: Duration in minutes
+        playbackUrl:
+          type: string
+          format: uri
+        transcript:
+          type: string
+    ProgressSnapshot:
+      type: object
+      properties:
+        studentId:
+          type: string
+        courses:
+          type: array
+          items:
+            type: object
+            properties:
+              courseId:
+                type: string
+              completedLessons:
+                type: integer
+              totalLessons:
+                type: integer
+              lastActivity:
+                type: string
+                format: date-time
+    ProgressPatch:
+      type: object
+      required: [courseId, lessonId, status]
+      properties:
+        courseId:
+          type: string
+        lessonId:
+          type: string
+        status:
+          type: string
+          enum: [completed, in_progress, reset]
+    Certificate:
+      type: object
+      properties:
+        id:
+          type: string
+        courseId:
+          type: string
+        issuedAt:
+          type: string
+          format: date-time
+        downloadUrl:
+          type: string
+          format: uri
+    OrderRequest:
+      type: object
+      required: [courseId, studentId, provider]
+      properties:
+        courseId:
+          type: string
+        studentId:
+          type: string
+        provider:
+          type: string
+          enum: [stripe, yookassa]
+        plan:
+          type: string
+          description: Pricing plan identifier
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+          enum: [pending, paid, failed]
+        amount:
+          type: number
+          format: float
+        currency:
+          type: string
+        checkoutUrl:
+          type: string
+          format: uri

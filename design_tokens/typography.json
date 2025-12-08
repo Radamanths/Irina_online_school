@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "generated": "2025-11-19",
+    "source": "Fonts from Сайт_Брендбук/Брендбук (Baskerville, Noto Sans, Poppins, PP Cirka)",
+    "basePx": 16,
+    "notes": "Tokens cover Latin/Cyrillic. Sizes follow the Virgo presentation hierarchy."
+  },
+  "families": {
+    "display": {
+      "token": "font.family.display",
+      "stack": ["\"Baskerville Cyrillic LT Std\"", "\"Times New Roman\"", "serif"],
+      "source": "Сайт_Брендбук/Брендбук/Baskerville",
+      "usage": "Hero statements, oversized numerals, ceremonial accents"
+    },
+    "sans": {
+      "token": "font.family.primary",
+      "stack": ["\"Noto Sans\"", "-apple-system", "BlinkMacSystemFont", "\"Segoe UI\"", "sans-serif"],
+      "source": "Сайт_Брендбук/Брендбук/Noto_Sans",
+      "usage": "Body copy, UI, form fields, course descriptions"
+    },
+    "accent": {
+      "token": "font.family.accent",
+      "stack": ["\"PP Cirka\"", "\"Poppins\"", "\"Noto Sans\"", "sans-serif"],
+      "source": "Сайт_Брендбук/Брендбук/svg/символы и лого",
+      "usage": "Pull quotes, badges, decorative numerals"
+    }
+  },
+  "weights": {
+    "baskerville": {
+      "regular": 400,
+      "italic": 400,
+      "semibold": 600
+    },
+    "notoSans": {
+      "light": 300,
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    }
+  },
+  "styles": [
+    {
+      "token": "type.display.hero",
+      "family": "{font.family.display}",
+      "weight": 600,
+      "sizePx": 64,
+      "linePx": 72,
+      "letterSpacing": -0.5,
+      "textTransform": "none",
+      "usage": "Landing hero headline"
+    },
+    {
+      "token": "type.display.kicker",
+      "family": "{font.family.accent}",
+      "weight": 500,
+      "sizePx": 18,
+      "linePx": 24,
+      "letterSpacing": 2,
+      "textTransform": "uppercase",
+      "usage": "Section eyebrow"
+    },
+    {
+      "token": "type.heading.h1",
+      "family": "{font.family.display}",
+      "weight": 400,
+      "sizePx": 48,
+      "linePx": 58,
+      "letterSpacing": -0.25,
+      "usage": "Primary headings on internal pages"
+    },
+    {
+      "token": "type.heading.h2",
+      "family": "{font.family.primary}",
+      "weight": 600,
+      "sizePx": 36,
+      "linePx": 44,
+      "letterSpacing": -0.1,
+      "usage": "Course block titles"
+    },
+    {
+      "token": "type.heading.h3",
+      "family": "{font.family.primary}",
+      "weight": 500,
+      "sizePx": 28,
+      "linePx": 36,
+      "letterSpacing": 0,
+      "usage": "Card headings, feature labels"
+    },
+    {
+      "token": "type.heading.h4",
+      "family": "{font.family.primary}",
+      "weight": 500,
+      "sizePx": 22,
+      "linePx": 30,
+      "letterSpacing": 0,
+      "usage": "Program modules, FAQ summary"
+    },
+    {
+      "token": "type.body.lead",
+      "family": "{font.family.primary}",
+      "weight": 400,
+      "sizePx": 20,
+      "linePx": 32,
+      "letterSpacing": 0,
+      "usage": "Short intro paragraphs"
+    },
+    {
+      "token": "type.body.base",
+      "family": "{font.family.primary}",
+      "weight": 400,
+      "sizePx": 16,
+      "linePx": 26,
+      "letterSpacing": 0,
+      "usage": "Default body copy"
+    },
+    {
+      "token": "type.body.small",
+      "family": "{font.family.primary}",
+      "weight": 400,
+      "sizePx": 14,
+      "linePx": 22,
+      "letterSpacing": 0.1,
+      "usage": "Captions, disclaimers"
+    },
+    {
+      "token": "type.ui.button",
+      "family": "{font.family.primary}",
+      "weight": 600,
+      "sizePx": 16,
+      "linePx": 20,
+      "letterSpacing": 1,
+      "textTransform": "uppercase",
+      "usage": "CTA buttons"
+    },
+    {
+      "token": "type.ui.label",
+      "family": "{font.family.primary}",
+      "weight": 500,
+      "sizePx": 12,
+      "linePx": 16,
+      "letterSpacing": 1.2,
+      "textTransform": "uppercase",
+      "usage": "Form labels, pill badges"
+    },
+    {
+      "token": "type.quote.pull",
+      "family": "{font.family.accent}",
+      "weight": 500,
+      "sizePx": 24,
+      "linePx": 34,
+      "letterSpacing": 0.2,
+      "usage": "Highlight quotes"
+    }
+  ]
+}
