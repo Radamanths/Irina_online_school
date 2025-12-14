@@ -1,5 +1,5 @@
 {
   "framework": "nextjs",
-  "installCommand": "corepack enable && pnpm -C ../.. install --frozen-lockfile",
-  "buildCommand": "pnpm -C ../.. turbo run build --filter=@virgo/admin"
+  "installCommand": "corepack enable && cd ../.. && pnpm install --frozen-lockfile",
+  "buildCommand": "cd ../.. && pnpm turbo run build --filter=@virgo/admin"
 }
