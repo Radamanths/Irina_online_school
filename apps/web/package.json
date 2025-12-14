@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev --turbo --port 3000",
-    "build": "next build",
+    "build": "next build && node ../../tools/vercel-fix-next-client-reference-manifests.cjs",
     "start": "next start",
     "lint": "next lint"
   },
