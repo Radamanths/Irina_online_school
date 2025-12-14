@@ -11,6 +11,8 @@ interface Props {
 const stripNonDigits = (value: string | null | undefined) => (value ?? "").replace(/[^0-9]/g, "");
 const sanitizeTel = (value: string | null | undefined) => (value ?? "").replace(/[^0-9+]/g, "");
 
+const adminUrl = process.env.NEXT_PUBLIC_ADMIN_URL?.trim();
+
 const defaultFooter = {
   tagline: "",
   contact: "",
@@ -65,6 +67,11 @@ export async function SiteHeader({ locale }: Props) {
         </nav>
 
         <div className="site-header__action-group">
+          {adminUrl ? (
+            <a className="button button--ghost" href={adminUrl} target="_blank" rel="noreferrer">
+              Админка
+            </a>
+          ) : null}
           <ThemeToggle />
           <LanguageSwitcher locale={locale} />
           <Link className="button" href={`/${locale}/${navigation.cta.path || "apply"}`}>

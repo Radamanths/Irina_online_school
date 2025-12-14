@@ -7,6 +7,8 @@ interface Props {
 const stripNonDigits = (value: string | null | undefined) => (value ?? "").replace(/[^0-9]/g, "");
 const sanitizeTel = (value: string | null | undefined) => (value ?? "").replace(/[^0-9+]/g, "");
 
+const adminUrl = process.env.NEXT_PUBLIC_ADMIN_URL?.trim();
+
 const defaultFooter = {
   tagline: "",
   contact: "",
@@ -81,6 +83,11 @@ export async function SiteFooter({ locale }: Props) {
       <div className="site-footer__meta">
         <span>© {year} {brandName}</span>
         <span>{footer.legal}</span>
+        {adminUrl ? (
+          <a href={adminUrl} target="_blank" rel="noreferrer">
+            Админка
+          </a>
+        ) : null}
       </div>
     </footer>
   );
