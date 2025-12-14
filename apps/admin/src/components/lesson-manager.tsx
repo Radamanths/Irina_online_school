@@ -134,29 +134,31 @@ export function LessonManager({ moduleMeta, initialLessons }: LessonManagerProps
     setErrorMessage(null);
     setStatusMessage(null);
 
-    startTransition(async () => {
-      try {
-        const savedLesson = editingLessonId
-          ? await updateLessonAction(moduleMeta.id, editingLessonId, payload)
-          : await createLessonAction(moduleMeta.id, payload);
+    startTransition(() => {
+      void (async () => {
+        try {
+          const savedLesson = editingLessonId
+            ? await updateLessonAction(moduleMeta.id, editingLessonId, payload)
+            : await createLessonAction(moduleMeta.id, payload);
 
-        setLessons(current => {
-          const next = editingLessonId
-            ? current.map(lesson => (lesson.id === savedLesson.id ? savedLesson : lesson))
-            : [...current, savedLesson];
-          return sortLessons(next);
-        });
+          setLessons(current => {
+            const next = editingLessonId
+              ? current.map(lesson => (lesson.id === savedLesson.id ? savedLesson : lesson))
+              : [...current, savedLesson];
+            return sortLessons(next);
+          });
 
-        setEditingLessonId(savedLesson.id);
-        setFormState(buildFormState(savedLesson));
-        setStatus("success");
-        setStatusMessage("Урок сохранен");
-      } catch (error) {
-        console.error(error);
-        setErrorMessage("Не удалось сохранить урок. Попробуйте снова.");
-        setStatus("error");
-        setStatusMessage(null);
-      }
+          setEditingLessonId(savedLesson.id);
+          setFormState(buildFormState(savedLesson));
+          setStatus("success");
+          setStatusMessage("Урок сохранен");
+        } catch (error) {
+          console.error(error);
+          setErrorMessage("Не удалось сохранить урок. Попробуйте снова.");
+          setStatus("error");
+          setStatusMessage(null);
+        }
+      })();
     });
   };
 
@@ -181,29 +183,31 @@ export function LessonManager({ moduleMeta, initialLessons }: LessonManagerProps
     setQuizErrorMessage(null);
     setQuizStatusMessage(null);
 
-    startQuizTransition(async () => {
-      try {
-        const updatedQuiz = await updateLessonQuizAction(editingLessonId, payload);
-        setLessons(current =>
-          current.map(lesson =>
-            lesson.id === editingLessonId
-              ? {
-                  ...lesson,
-                  quizId: updatedQuiz.id,
-                  quiz: updatedQuiz
-                }
-              : lesson
-          )
-        );
-        setQuizFormState(buildQuizFormState(updatedQuiz));
-        setQuizStatus("success");
-        setQuizStatusMessage("Настройки теста сохранены");
-      } catch (err) {
-        console.error(err);
-        setQuizStatus("error");
-        setQuizErrorMessage("Не удалось сохранить настройки теста");
-        setQuizStatusMessage(null);
-      }
+    startQuizTransition(() => {
+      void (async () => {
+        try {
+          const updatedQuiz = await updateLessonQuizAction(editingLessonId, payload);
+          setLessons(current =>
+            current.map(lesson =>
+              lesson.id === editingLessonId
+                ? {
+                    ...lesson,
+                    quizId: updatedQuiz.id,
+                    quiz: updatedQuiz
+                  }
+                : lesson
+            )
+          );
+          setQuizFormState(buildQuizFormState(updatedQuiz));
+          setQuizStatus("success");
+          setQuizStatusMessage("Настройки теста сохранены");
+        } catch (err) {
+          console.error(err);
+          setQuizStatus("error");
+          setQuizErrorMessage("Не удалось сохранить настройки теста");
+          setQuizStatusMessage(null);
+        }
+      })();
     });
   };
 
@@ -216,30 +220,32 @@ export function LessonManager({ moduleMeta, initialLessons }: LessonManagerProps
     setErrorMessage(null);
     setStatusMessage(null);
 
-    startTransition(async () => {
-      try {
-        await deleteLessonAction(moduleMeta.id, lessonId);
-        setLessons(current => {
-          const filtered = current.filter(lesson => lesson.id !== lessonId);
-          const next = reindexLessons(filtered);
-          setEditingLessonId(prev => {
-            if (prev === lessonId) {
-              const fallback = next[0] ?? null;
-              setFormState(buildFormState(fallback ?? undefined));
-              return fallback?.id ?? null;
-            }
-            return prev;
+    startTransition(() => {
+      void (async () => {
+        try {
+          await deleteLessonAction(moduleMeta.id, lessonId);
+          setLessons(current => {
+            const filtered = current.filter(lesson => lesson.id !== lessonId);
+            const next = reindexLessons(filtered);
+            setEditingLessonId(prev => {
+              if (prev === lessonId) {
+                const fallback = next[0] ?? null;
+                setFormState(buildFormState(fallback ?? undefined));
+                return fallback?.id ?? null;
+              }
+              return prev;
+            });
+            return next;
           });
-          return next;
-        });
-        setStatus("success");
-        setStatusMessage("Урок удален");
-      } catch (error) {
-        console.error(error);
-        setStatus("error");
-        setErrorMessage("Не удалось удалить урок");
-        setStatusMessage(null);
-      }
+          setStatus("success");
+          setStatusMessage("Урок удален");
+        } catch (error) {
+          console.error(error);
+          setStatus("error");
+          setErrorMessage("Не удалось удалить урок");
+          setStatusMessage(null);
+        }
+      })();
     });
   };
 
@@ -264,19 +270,21 @@ export function LessonManager({ moduleMeta, initialLessons }: LessonManagerProps
     setErrorMessage(null);
     setStatusMessage(null);
 
-    startTransition(async () => {
-      try {
-        const updated = await reorderLessonsAction(moduleMeta.id, lessonIds);
-        setLessons(sortLessons(updated));
-        setStatus("success");
-        setStatusMessage("Порядок обновлен");
-      } catch (error) {
-        console.error(error);
-        setLessons(previousLessons);
-        setStatus("error");
-        setErrorMessage("Не удалось обновить порядок уроков");
-        setStatusMessage(null);
-      }
+    startTransition(() => {
+      void (async () => {
+        try {
+          const updated = await reorderLessonsAction(moduleMeta.id, lessonIds);
+          setLessons(sortLessons(updated));
+          setStatus("success");
+          setStatusMessage("Порядок обновлен");
+        } catch (error) {
+          console.error(error);
+          setLessons(previousLessons);
+          setStatus("error");
+          setErrorMessage("Не удалось обновить порядок уроков");
+          setStatusMessage(null);
+        }
+      })();
     });
   };
 

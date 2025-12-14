@@ -67,20 +67,22 @@ export function PaymentLinkLauncher({ orderId, initialLink }: PaymentLinkLaunche
   const handleGenerate = () => {
     setFeedback(null);
     setCopied(false);
-    startTransition(async () => {
-      const response = await generatePaymentLinkAction(orderId, { provider, locale });
-      if (!response.success || !response.link) {
-        setLink(null);
-        setFeedback({ tone: "error", text: response.message ?? "Не удалось создать ссылку" });
-        return;
-      }
+    startTransition(() => {
+      void (async () => {
+        const response = await generatePaymentLinkAction(orderId, { provider, locale });
+        if (!response.success || !response.link) {
+          setLink(null);
+          setFeedback({ tone: "error", text: response.message ?? "Не удалось создать ссылку" });
+          return;
+        }
 
-      setLink(response.link);
-      setFeedback({
-        tone: "success",
-        text: response.message ?? "Ссылка готова. Скопируйте ее и отправьте студенту."
-      });
-      router.refresh();
+        setLink(response.link);
+        setFeedback({
+          tone: "success",
+          text: response.message ?? "Ссылка готова. Скопируйте ее и отправьте студенту."
+        });
+        router.refresh();
+      })();
     });
   };
 

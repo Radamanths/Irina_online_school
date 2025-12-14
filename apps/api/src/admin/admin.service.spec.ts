@@ -1,6 +1,7 @@
 import { AdminService } from "./admin.service";
 import type { PrismaService } from "../prisma/prisma.service";
 import type { PaymentsService } from "../payments/payments.service";
+import type { ProgressWebhookService } from "../progress/progress-webhook.service";
 import { createPrismaMock } from "../../test/prisma.mock";
 
 describe("AdminService — getOrdersFeed", () => {
@@ -12,7 +13,9 @@ describe("AdminService — getOrdersFeed", () => {
       createPaymentLinkForOrder: jest.fn()
     } as unknown as PaymentsService;
 
-    service = new AdminService(prismaMock, paymentsStub);
+    const progressWebhookStub = {} as unknown as ProgressWebhookService;
+
+    service = new AdminService(prismaMock, paymentsStub, progressWebhookStub);
   });
 
   it("returns paginated metadata", async () => {

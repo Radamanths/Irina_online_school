@@ -9,13 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@swc/helpers": "0.5.13",
     "@tanstack/react-query": "^5.90.10",
     "@virgo/config": "workspace:*",
     "@virgo/ui": "workspace:*",
     "axios": "1.7.4",
     "clsx": "2.1.0",
     "date-fns": "^4.1.0",
-    "next": "15.0.0",
+    "next": "15.0.5",
     "next-intl": "3.12.0",
     "react": "18.3.1",
     "react-dom": "18.3.1"
@@ -24,6 +25,6 @@
     "@types/node": "20.11.30",
     "@types/react": "18.3.5",
     "@types/react-dom": "18.3.0",
-    "eslint-config-next": "16.0.3"
+    "eslint-config-next": "15.0.5"
   }
 }

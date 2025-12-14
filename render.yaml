@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: virgo-api
+    env: node
+    plan: starter
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @virgo/config run build && pnpm --filter @virgo/api run build
+    startCommand: pnpm --filter @virgo/api start:prod
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CORS_ALLOW_VERCEL_PREVIEWS
+        value: "true"
+      # Set these in Render Dashboard as secret values:
+      # - DATABASE_URL
+      # - CORS_ORIGINS (comma-separated, e.g. https://example.com,https://admin.example.com)

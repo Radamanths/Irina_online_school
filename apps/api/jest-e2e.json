@@ -12,6 +12,7 @@
   },
   "testEnvironment": "node",
   "moduleNameMapper": {
+    "^@virgo/config$": "<rootDir>/../../packages/config/src/index.ts",
     "^(\\.{1,2}/.*)\\.js$": "$1"
   }
 }

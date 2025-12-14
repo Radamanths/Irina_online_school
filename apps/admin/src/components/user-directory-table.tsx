@@ -223,20 +223,22 @@ export function UserDirectoryTable({ users, roleOptions }: UserDirectoryTablePro
     const { userId, draft } = roleEditor;
     setRoleEditor(current => (current ? { ...current, status: "saving", error: undefined } : current));
 
-    startTransition(async () => {
-      try {
-        const updatedUser = await updateUserRolesAction(userId, draft);
-        setTableUsers(current => current.map(user => (user.id === updatedUser.id ? updatedUser : user)));
-        setRoleEditor(null);
-        setRoleFlash({ userId: updatedUser.id, tone: "success", text: "Роли обновлены" });
-      } catch (error) {
-        console.error(error);
-        setRoleEditor(current =>
-          current?.userId === userId
-            ? { ...current, status: "error", error: "Не удалось обновить роли" }
-            : current
-        );
-      }
+    startTransition(() => {
+      void (async () => {
+        try {
+          const updatedUser = await updateUserRolesAction(userId, draft);
+          setTableUsers(current => current.map(user => (user.id === updatedUser.id ? updatedUser : user)));
+          setRoleEditor(null);
+          setRoleFlash({ userId: updatedUser.id, tone: "success", text: "Роли обновлены" });
+        } catch (error) {
+          console.error(error);
+          setRoleEditor(current =>
+            current?.userId === userId
+              ? { ...current, status: "error", error: "Не удалось обновить роли" }
+              : current
+          );
+        }
+      })();
     });
   }
 

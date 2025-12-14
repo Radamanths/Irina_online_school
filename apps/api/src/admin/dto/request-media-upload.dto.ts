@@ -17,12 +17,17 @@ export class RequestMediaUploadDto {
   type?: string;
 
   @IsOptional()
-  @Transform(({ value }) => {
+  @Transform(({ value }: { value: unknown }) => {
     if (typeof value === "string") {
       const parsed = Number(value);
       return Number.isFinite(parsed) ? parsed : undefined;
     }
-    return value;
+
+    if (typeof value === "number") {
+      return value;
+    }
+
+    return undefined;
   })
   @IsNumber({ allowNaN: false, maxDecimalPlaces: 2 }, { message: "sizeBytes must be a number" })
   @Min(0)

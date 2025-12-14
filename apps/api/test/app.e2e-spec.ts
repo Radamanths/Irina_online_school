@@ -37,7 +37,11 @@ describe("Virgo API e2e", () => {
   });
 
   it("returns lesson detail", async () => {
-    const response = await request(app.getHttpServer()).get("/lessons/lesson-1").query({ locale: "ru" }).expect(200);
+    const response = await request(app.getHttpServer())
+      .get("/lessons/lesson-1")
+      .set("x-user-id", "user-1")
+      .query({ locale: "ru" })
+      .expect(200);
     expect(response.body).toMatchObject({ id: "lesson-1", moduleId: "module-1" });
   });
 

@@ -2,9 +2,48 @@ import { Logger, ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 
+function parseCorsOrigins(value: string | undefined): string[] {
+  if (!value) return [];
+  return value
+    .split(",")
+    .map(item => item.trim())
+    .filter(Boolean)
+    .map(origin => origin.replace(/\/$/, ""));
+}
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({ origin: [/localhost:\d+$/] });
+
+  const explicitOrigins = new Set(parseCorsOrigins(process.env.CORS_ORIGINS));
+  const allowVercelPreviews = process.env.CORS_ALLOW_VERCEL_PREVIEWS === "true";
+
+  app.enableCors({
+    origin: (origin, callback) => {
+      if (!origin) {
+        callback(null, true);
+        return;
+      }
+
+      const normalizedOrigin = origin.replace(/\/$/, "");
+
+      if (/^https?:\/\/localhost:\d+$/.test(normalizedOrigin)) {
+        callback(null, true);
+        return;
+      }
+
+      if (allowVercelPreviews && /^https:\/\/.*\.vercel\.app$/.test(normalizedOrigin)) {
+        callback(null, true);
+        return;
+      }
+
+      if (explicitOrigins.has(normalizedOrigin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error(`CORS blocked for origin: ${origin}`), false);
+    }
+  });
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,

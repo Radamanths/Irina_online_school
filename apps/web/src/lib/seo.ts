@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { cache } from "react";
 import { locales } from "../../i18n/routing";
 import { fetchSeoSettings, type SeoSettings } from "./api";
 import { getCopy } from "./i18n.config";
@@ -34,7 +33,13 @@ const defaultPageSlugs: Partial<Record<SeoPageKey, string>> = {
   blog: "/blog"
 };
 
-const loadSeoSettings = cache(async () => fetchSeoSettings());
+let seoSettingsPromise: Promise<SeoSettings> | null = null;
+const loadSeoSettings = () => {
+  if (!seoSettingsPromise) {
+    seoSettingsPromise = fetchSeoSettings();
+  }
+  return seoSettingsPromise;
+};
 
 function mapLanguageAlternates(pathname: string) {
   return locales.reduce<Record<string, string>>((acc, locale) => {

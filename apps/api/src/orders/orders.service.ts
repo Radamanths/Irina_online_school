@@ -3,7 +3,6 @@ import { randomUUID } from "node:crypto";
 import type {
   InvoiceStatus,
   Order,
-  OrderStatus,
   OrderType,
   Payment,
   PaymentProvider,
@@ -404,7 +403,7 @@ export class OrdersService {
 
     const channel = dto.channel ?? "dashboard";
     const processedAt = new Date();
-    const paymentMetadata = ((payment.webhookPayload as Prisma.JsonObject | null) ?? {}) as Prisma.JsonObject;
+    const paymentMetadata = (payment.webhookPayload ?? {}) as Prisma.JsonObject;
     paymentMetadata.manualRefund = {
       reason: dto.reason ?? null,
       requestedAt: processedAt.toISOString(),

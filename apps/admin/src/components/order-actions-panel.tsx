@@ -36,36 +36,40 @@ export function OrderActionsPanel({
   const handleReminder = () => {
     setFeedback(null);
     setActiveAction("reminder");
-    startTransition(async () => {
-      const result = await sendPaymentReminderAction(orderId);
-      if (!result.success) {
-        setFeedback({ tone: "error", text: result.message ?? "Не удалось отправить напоминание" });
+    startTransition(() => {
+      void (async () => {
+        const result = await sendPaymentReminderAction(orderId);
+        if (!result.success) {
+          setFeedback({ tone: "error", text: result.message ?? "Не удалось отправить напоминание" });
+          setActiveAction(null);
+          return;
+        }
+        setFeedback({
+          tone: "success",
+          text: result.message ?? "Напоминание отправлено"
+        });
         setActiveAction(null);
-        return;
-      }
-      setFeedback({
-        tone: "success",
-        text: result.message ?? "Напоминание отправлено"
-      });
-      setActiveAction(null);
-      router.refresh();
+        router.refresh();
+      })();
     });
   };
 
   const handleRefund = () => {
     setFeedback(null);
     setActiveAction("refund");
-    startTransition(async () => {
-      const result = await processRefundAction(orderId, refundNote);
-      if (!result.success) {
-        setFeedback({ tone: "error", text: result.message ?? "Не удалось оформить возврат" });
+    startTransition(() => {
+      void (async () => {
+        const result = await processRefundAction(orderId, refundNote);
+        if (!result.success) {
+          setFeedback({ tone: "error", text: result.message ?? "Не удалось оформить возврат" });
+          setActiveAction(null);
+          return;
+        }
+        setRefundNote("");
+        setFeedback({ tone: "success", text: result.message ?? "Возврат оформлен" });
         setActiveAction(null);
-        return;
-      }
-      setRefundNote("");
-      setFeedback({ tone: "success", text: result.message ?? "Возврат оформлен" });
-      setActiveAction(null);
-      router.refresh();
+        router.refresh();
+      })();
     });
   };
 

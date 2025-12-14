@@ -48,12 +48,14 @@ export function ManualEnrollmentForm({ users, courses }: ManualEnrollmentFormPro
       return;
     }
 
-    startTransition(async () => {
-      const result = await createManualEnrollmentAction(payload);
-      setStatus(result);
-      if (result.status === "success") {
-        form.reset();
-      }
+    startTransition(() => {
+      void (async () => {
+        const result = await createManualEnrollmentAction(payload);
+        setStatus(result);
+        if (result.status === "success") {
+          form.reset();
+        }
+      })();
     });
   };
 

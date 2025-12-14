@@ -18,8 +18,7 @@ import type {
   MediaAsset as PrismaMediaAsset,
   OrderInvoice,
   Payment,
-  Quiz,
-  SubscriptionPlan
+  Quiz
 } from "@prisma/client";
 import { PrismaService } from "../prisma/prisma.service";
 import { SaveCourseDraftDto } from "./dto/save-course-draft.dto";
@@ -1544,7 +1543,7 @@ export class AdminService implements OnModuleInit {
         if (!url.protocol.startsWith("http")) {
           throw new BadRequestException("Webhook URL должен начинаться с http или https");
         }
-      } catch (error) {
+      } catch {
         throw new BadRequestException("Укажите корректный URL для вебхука");
       }
     }
@@ -3048,7 +3047,17 @@ export class AdminService implements OnModuleInit {
     const provider = this.normalizeProvider(record.provider);
     const localeValue = typeof record.locale === "string" ? record.locale.toLowerCase() : "ru";
     const locale: SupportedLocale = localeValue === "en" ? "en" : "ru";
-    const isoCandidate = typeof record.createdAtIso === "string" ? record.createdAtIso : String(record.createdAt ?? "");
+    const createdAtRaw = record.createdAt;
+    const isoCandidate =
+      typeof record.createdAtIso === "string"
+        ? record.createdAtIso
+        : typeof createdAtRaw === "string"
+          ? createdAtRaw
+          : createdAtRaw instanceof Date
+            ? createdAtRaw.toISOString()
+            : typeof createdAtRaw === "number"
+              ? new Date(createdAtRaw).toISOString()
+              : "";
     const parsedDate = isoCandidate ? new Date(isoCandidate) : new Date();
     const normalizedDate = Number.isNaN(parsedDate.getTime()) ? new Date() : parsedDate;
     const createdAtIso = normalizedDate.toISOString();

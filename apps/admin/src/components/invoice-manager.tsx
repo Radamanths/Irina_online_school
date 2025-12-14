@@ -39,26 +39,28 @@ export function InvoiceManager({ orderId, invoice, billingProfilePresent }: Invo
     }
 
     setFeedback(null);
-    startTransition(async () => {
-      const result = await updateInvoiceAction(orderId, {
-        status,
-        downloadUrl,
-        notes
-      });
+    startTransition(() => {
+      void (async () => {
+        const result = await updateInvoiceAction(orderId, {
+          status,
+          downloadUrl,
+          notes
+        });
 
-      if (!result.success) {
-        setFeedback({ tone: "error", text: result.message ?? "Не удалось обновить счёт" });
-        return;
-      }
+        if (!result.success) {
+          setFeedback({ tone: "error", text: result.message ?? "Не удалось обновить счёт" });
+          return;
+        }
 
-      if (result.invoice) {
-        setStatus(result.invoice.status);
-        setDownloadUrl(result.invoice.downloadUrl ?? "");
-        setNotes(result.invoice.notes ?? "");
-      }
+        if (result.invoice) {
+          setStatus(result.invoice.status);
+          setDownloadUrl(result.invoice.downloadUrl ?? "");
+          setNotes(result.invoice.notes ?? "");
+        }
 
-      setFeedback({ tone: "success", text: result.message ?? "Данные счета сохранены" });
-      router.refresh();
+        setFeedback({ tone: "success", text: result.message ?? "Данные счета сохранены" });
+        router.refresh();
+      })();
     });
   };
 

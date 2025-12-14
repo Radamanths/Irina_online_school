@@ -53,6 +53,9 @@ interface EnrollmentRecord {
   id: string;
   userId: string;
   courseId: string;
+  status: "active" | "paused" | "completed" | "expired" | "canceled";
+  accessStart: Date | null;
+  accessEnd: Date | null;
 }
 
 interface CertificateRecord {
@@ -213,7 +216,7 @@ export function createPrismaMock() {
   ];
 
   const enrollments: EnrollmentRecord[] = [
-    { id: "enroll-1", userId: "user-1", courseId: "course-1" }
+    { id: "enroll-1", userId: "user-1", courseId: "course-1", status: "active", accessStart: null, accessEnd: null }
   ];
 
   const certificates: CertificateRecord[] = [
@@ -881,15 +884,25 @@ export function createPrismaMock() {
           quiz: lesson.quizId ? { id: lesson.quizId } : null
         }));
       },
-      findUnique: async ({ where }: { where: { id: string } }) => {
+      findUnique: async ({ where, include }: { where: { id: string }; include?: { quiz?: unknown; module?: boolean } }) => {
         const lesson = lessons.find(record => record.id === where.id);
         if (!lesson) {
           return null;
         }
-        return {
-          ...lesson,
-          quiz: lesson.quizId ? { id: lesson.quizId } : null
+
+        const result: Record<string, unknown> = {
+          ...lesson
         };
+
+        if (include?.quiz) {
+          result.quiz = lesson.quizId ? { id: lesson.quizId } : null;
+        }
+
+        if (include?.module) {
+          result.module = modules.find(record => record.id === lesson.moduleId) ?? null;
+        }
+
+        return result;
       }
     },
     lessonProgress: {
@@ -904,6 +917,10 @@ export function createPrismaMock() {
           }
           return getCourseIdForLesson(record.lessonId) === requestedCourseId;
         });
+      },
+      findUnique: async ({ where }: { where: { userId_lessonId: { userId: string; lessonId: string } } }) => {
+        const { userId, lessonId } = where.userId_lessonId;
+        return lessonProgress.find(record => record.userId === userId && record.lessonId === lessonId) ?? null;
       },
       upsert: async ({ where, create }: { where: { userId_lessonId: { userId: string; lessonId: string } }; create: LessonProgressRecord; update: LessonProgressRecord }) => {
         const { userId, lessonId } = where.userId_lessonId;
@@ -923,8 +940,12 @@ export function createPrismaMock() {
       }
     },
     enrollment: {
-      findUnique: async ({ where }: { where: { id: string } }) => {
-        const enrollment = enrollments.find(record => record.id === where.id);
+      findUnique: async ({ where }: { where: { id?: string; userId_courseId?: { userId: string; courseId: string } } }) => {
+        const enrollment = where.userId_courseId
+          ? enrollments.find(
+              record => record.userId === where.userId_courseId?.userId && record.courseId === where.userId_courseId?.courseId
+            )
+          : enrollments.find(record => record.id === where.id);
         if (!enrollment) {
           return null;
         }
