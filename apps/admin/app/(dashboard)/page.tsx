@@ -3,6 +3,8 @@ import { getDashboardStats } from "../../src/lib/api";
 import { StatCard } from "../../src/components/stat-card";
 import { PageHeader } from "../../src/components/page-header";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboard() {
   const admin = await ensureAdmin();
   const stats = await getDashboardStats();

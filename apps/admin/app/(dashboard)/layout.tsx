@@ -3,6 +3,8 @@ import { ensureAdmin } from "../../src/lib/auth";
 import { Sidebar } from "../../src/components/sidebar";
 import { Topbar } from "../../src/components/topbar";
 
+export const dynamic = "force-dynamic";
+
 export default async function DashboardLayout({ children }: { children: ReactNode }) {
   await ensureAdmin();
 
