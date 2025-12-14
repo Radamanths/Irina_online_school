@@ -12,6 +12,7 @@ const stripNonDigits = (value: string | null | undefined) => (value ?? "").repla
 const sanitizeTel = (value: string | null | undefined) => (value ?? "").replace(/[^0-9+]/g, "");
 
 const adminUrl = process.env.NEXT_PUBLIC_ADMIN_URL?.trim();
+const showAdminLink = process.env.NEXT_PUBLIC_ENABLE_ADMIN_LINK === "true";
 
 const defaultFooter = {
   tagline: "",
@@ -67,7 +68,7 @@ export async function SiteHeader({ locale }: Props) {
         </nav>
 
         <div className="site-header__action-group">
-          {adminUrl ? (
+          {showAdminLink && adminUrl ? (
             <a className="button button--ghost" href={adminUrl} target="_blank" rel="noreferrer">
               Админка
             </a>

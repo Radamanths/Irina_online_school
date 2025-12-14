@@ -8,6 +8,7 @@ const stripNonDigits = (value: string | null | undefined) => (value ?? "").repla
 const sanitizeTel = (value: string | null | undefined) => (value ?? "").replace(/[^0-9+]/g, "");
 
 const adminUrl = process.env.NEXT_PUBLIC_ADMIN_URL?.trim();
+const showAdminLink = process.env.NEXT_PUBLIC_ENABLE_ADMIN_LINK === "true";
 
 const defaultFooter = {
   tagline: "",
@@ -83,7 +84,7 @@ export async function SiteFooter({ locale }: Props) {
       <div className="site-footer__meta">
         <span>© {year} {brandName}</span>
         <span>{footer.legal}</span>
-        {adminUrl ? (
+        {showAdminLink && adminUrl ? (
           <a href={adminUrl} target="_blank" rel="noreferrer">
             Админка
           </a>
