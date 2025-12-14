@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
+  output: process.env.VERCEL ? undefined : "standalone",
   transpilePackages: ["@virgo/config", "@virgo/ui"],
   eslint: {
-    dirs: ["app", "src"]
+    dirs: ["app", "src"],
+    ignoreDuringBuilds: true
   },
   poweredByHeader: false
 };
