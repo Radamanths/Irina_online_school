@@ -58,6 +58,7 @@ const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
+  transpilePackages: ["@virgo/config", "@virgo/ui"],
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "virgoschool.com" },
