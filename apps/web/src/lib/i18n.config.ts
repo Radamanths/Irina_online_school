@@ -342,6 +342,41 @@ export type TranslationShape = {
         oneTime: string;
         subscription: string;
       };
+      profile: {
+        title: string;
+        description: string;
+        updatedLabel: string;
+        updatedFallback: string;
+        submitLabel: string;
+        success: string;
+        error: string;
+        fields: {
+          fullName: string;
+          email: string;
+          companyName: string;
+          taxId: string;
+          address: string;
+          phone: string;
+        };
+      };
+      invoice: {
+        heading: string;
+        notRequested: string;
+        requestedAt: string;
+        notesLabel: string;
+        notesPlaceholder: string;
+        request: string;
+        refresh: string;
+        download: string;
+        success: string;
+        error: string;
+        requiresProfile: string;
+        status: {
+          pending: string;
+          issued: string;
+          failed: string;
+        };
+      };
     };
   };
   lessonPlayer: {
@@ -456,16 +491,60 @@ const dictionary: Record<SupportedLocale, TranslationShape> = {
   en: enMessages as TranslationShape
 };
 
+function cloneTranslation<T>(value: T): T {
+  return JSON.parse(JSON.stringify(value)) as T;
+}
+
+function mergeTranslations<T>(fallback: T, override: T): T {
+  const target = cloneTranslation(fallback) as Record<string, unknown>;
+  const source = override as Record<string, unknown>;
+
+  function assignDeep(currentTarget: Record<string, unknown>, currentSource: Record<string, unknown>) {
+    Object.entries(currentSource).forEach(([key, value]) => {
+      if (Array.isArray(value) || typeof value !== "object" || value === null) {
+        currentTarget[key] = value;
+        return;
+      }
+
+      if (!currentTarget[key] || typeof currentTarget[key] !== "object" || Array.isArray(currentTarget[key])) {
+        currentTarget[key] = {};
+      }
+
+      assignDeep(currentTarget[key] as Record<string, unknown>, value as Record<string, unknown>);
+    });
+  }
+
+  assignDeep(target, source);
+  return target as T;
+}
+
 function isSupportedLocale(locale: string): locale is SupportedLocale {
   return supportedLocales.includes(locale as SupportedLocale);
 }
 
+function isTranslationShape(value: unknown): value is TranslationShape {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  const record = value as Record<string, unknown>;
+  const hasCommon = typeof record.common === "object" && record.common !== null;
+  const hasHome = typeof record.home === "object" && record.home !== null;
+
+  return hasCommon && hasHome;
+}
+
 export async function getCopy(locale: string): Promise<TranslationShape> {
   const resolvedLocale = isSupportedLocale(locale) ? locale : "ru";
+  const fallback = dictionary[resolvedLocale];
   try {
     const messages = await getMessages({ locale: resolvedLocale });
-    return messages as TranslationShape;
+    if (isTranslationShape(messages)) {
+      return mergeTranslations(fallback, messages);
+    }
   } catch {
-    return dictionary[resolvedLocale];
+    // Intentionally fall through to the fallback copy
   }
+
+  return fallback;
 }

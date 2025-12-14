@@ -7,17 +7,18 @@ type CheckoutCopy = TranslationShape["checkout"];
 
 interface CheckoutPageProps {
   params: Promise<{ orderId: string }>;
-  searchParams?: { provider?: string; locale?: string; providerUrl?: string };
+  searchParams?: Promise<{ provider?: string; locale?: string; providerUrl?: string }>;
 }
 
 export default async function CheckoutPage({ params, searchParams }: CheckoutPageProps) {
   const { orderId } = await params;
-  const locale: Locale = searchParams?.locale === "en" ? "en" : "ru";
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  const locale: Locale = resolvedSearchParams?.locale === "en" ? "en" : "ru";
   const order = await fetchOrder(orderId);
   const payments = order.payments ?? [];
-  const providerParam = searchParams?.provider ?? payments[0]?.provider ?? "stripe";
+  const providerParam = resolvedSearchParams?.provider ?? payments[0]?.provider ?? "stripe";
   const provider = providerParam.toLowerCase();
-  const providerCheckoutUrl = searchParams?.providerUrl;
+  const providerCheckoutUrl = resolvedSearchParams?.providerUrl;
   const copy = (await getCopy(locale)).checkout;
 
   const amountLabel = formatCurrency(order, locale);

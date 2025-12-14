@@ -5,6 +5,9 @@ dist/
 .storybook/out/
 coverage/
 .pnp.*
+.turbo/
+.vscode/
+*.tsbuildinfo
 
 # Env
 .env*
@@ -32,3 +35,6 @@ yarn-error.log*
 # Generated assets
 /public/assets/**
 /apps/**/.turbo
+
+# Design sources (keep local only)
+/Сайт_Брендбук/Брендбук/преза_Папка/преза.ai

@@ -7,8 +7,9 @@ interface Props {
 
 export async function LandingSections({ locale }: Props) {
   const { home, common } = await getCopy(locale);
-  const mailto = `mailto:${common.footer.contact}`;
-  const programsMeta = home.programs as typeof home.programs & {
+  const footerContact = common?.footer?.contact ?? "";
+  const mailto = footerContact ? `mailto:${footerContact}` : "#";
+  const programsMeta = (home?.programs ?? ({} as typeof home.programs)) as typeof home.programs & {
     durationLabel?: string;
     priceLabel?: string;
     ctaHint?: string;
@@ -23,17 +24,26 @@ export async function LandingSections({ locale }: Props) {
   const durationLabel = programsMeta.durationLabel ?? "Длительность";
   const priceLabel = programsMeta.priceLabel ?? "Оплата";
   const actionsHint = programsMeta.ctaHint ?? "Детали программы";
+  const programCards = programsMeta.cards ?? [];
+  const metricsItems = home?.metrics?.items ?? [];
+  const educationHighlights = home?.education?.highlights ?? [];
+  const astroServicesCards = home?.astroServices?.cards ?? [];
+  const applicationSteps = home?.application?.steps ?? [];
+  const blogPosts = home?.blogPreview?.posts ?? [];
+  const paymentCards = home?.payment?.cards ?? [];
+  const contactContacts = home?.contactPanel?.contacts ?? [];
+  const contactSocials = home?.contactPanel?.socials ?? [];
 
   return (
     <>
       <section className="landing-panel landing-panel--metrics">
         <header className="section-heading">
-          <span className="pill">{home.metrics.eyebrow}</span>
-          <h2>{home.metrics.title}</h2>
-          <p className="lead">{home.metrics.description}</p>
+          <span className="pill">{home?.metrics?.eyebrow ?? ""}</span>
+          <h2>{home?.metrics?.title ?? ""}</h2>
+          <p className="lead">{home?.metrics?.description ?? ""}</p>
         </header>
         <div className="metrics-grid">
-          {home.metrics.items.map(item => (
+          {metricsItems.map(item => (
             <article key={item.label} className="metric-card">
               <strong>{item.value}</strong>
               <p>{item.label}</p>
@@ -44,14 +54,14 @@ export async function LandingSections({ locale }: Props) {
 
       <section className="landing-panel landing-panel--education">
         <header className="section-heading">
-          <span className="pill">{home.education.eyebrow}</span>
-          <h2>{home.education.title}</h2>
-          <p className="lead">{home.education.description}</p>
+          <span className="pill">{home?.education?.eyebrow ?? ""}</span>
+          <h2>{home?.education?.title ?? ""}</h2>
+          <p className="lead">{home?.education?.description ?? ""}</p>
         </header>
         <div className="education-panel">
-          <p>{home.education.body}</p>
+          <p>{home?.education?.body ?? ""}</p>
           <ul>
-            {home.education.highlights.map(highlight => (
+            {educationHighlights.map(highlight => (
               <li key={highlight}>{highlight}</li>
             ))}
           </ul>
@@ -60,12 +70,12 @@ export async function LandingSections({ locale }: Props) {
 
       <section className="landing-panel landing-panel--programs">
         <header className="section-heading">
-          <span className="pill">{home.programs.eyebrow}</span>
-          <h2>{home.programs.title}</h2>
-          <p className="lead">{home.programs.description}</p>
+          <span className="pill">{home?.programs?.eyebrow ?? ""}</span>
+          <h2>{home?.programs?.title ?? ""}</h2>
+          <p className="lead">{home?.programs?.description ?? ""}</p>
         </header>
         <div className="programs-grid">
-          {home.programs.cards.map((card, index) => {
+          {programCards.map((card, index) => {
             const accentIndex = index % programIcons.length;
             const icon = programIcons[accentIndex];
             const fillRatio = [0.85, 0.65, 0.78, 0.7][accentIndex];
@@ -108,19 +118,19 @@ export async function LandingSections({ locale }: Props) {
         </div>
         <div className="section-cta">
           <Link className="button button--ghost" href={`/${locale}/courses`}>
-            {home.programs.ctaLabel}
+            {home?.programs?.ctaLabel ?? ""}
           </Link>
         </div>
       </section>
 
       <section className="landing-panel landing-panel--services">
         <header className="section-heading">
-          <span className="pill">{home.astroServices.eyebrow}</span>
-          <h2>{home.astroServices.title}</h2>
-          <p className="lead">{home.astroServices.description}</p>
+          <span className="pill">{home?.astroServices?.eyebrow ?? ""}</span>
+          <h2>{home?.astroServices?.title ?? ""}</h2>
+          <p className="lead">{home?.astroServices?.description ?? ""}</p>
         </header>
         <div className="services-grid">
-          {home.astroServices.cards.map(card => (
+          {astroServicesCards.map(card => (
             <a key={card.name} className="service-card" href={card.href} target="_blank" rel="noreferrer">
               <h3>{card.name}</h3>
               <p>{card.description}</p>
@@ -132,37 +142,37 @@ export async function LandingSections({ locale }: Props) {
           ))}
         </div>
         <div className="section-cta">
-          <Link className="button" href={`/${locale}${home.astroServices.ctaHref}`}>
-            {home.astroServices.ctaLabel}
+          <Link className="button" href={`/${locale}${home?.astroServices?.ctaHref ?? ""}`}>
+            {home?.astroServices?.ctaLabel ?? ""}
           </Link>
         </div>
       </section>
 
       <section className="landing-panel landing-panel--application">
         <header className="section-heading">
-          <span className="pill">{home.application.eyebrow}</span>
-          <h2>{home.application.title}</h2>
-          <p className="lead">{home.application.description}</p>
+          <span className="pill">{home?.application?.eyebrow ?? ""}</span>
+          <h2>{home?.application?.title ?? ""}</h2>
+          <p className="lead">{home?.application?.description ?? ""}</p>
         </header>
         <ol className="application-steps">
-          {home.application.steps.map(step => (
+          {applicationSteps.map(step => (
             <li key={step.title}>
               <strong>{step.title}</strong>
               <p>{step.description}</p>
             </li>
           ))}
         </ol>
-        <p className="application-note">{home.application.note}</p>
+        <p className="application-note">{home?.application?.note ?? ""}</p>
       </section>
 
       <section className="landing-panel landing-panel--blog">
         <header className="section-heading">
-          <span className="pill">{home.blogPreview.eyebrow}</span>
-          <h2>{home.blogPreview.title}</h2>
-          <p className="lead">{home.blogPreview.description}</p>
+          <span className="pill">{home?.blogPreview?.eyebrow ?? ""}</span>
+          <h2>{home?.blogPreview?.title ?? ""}</h2>
+          <p className="lead">{home?.blogPreview?.description ?? ""}</p>
         </header>
         <div className="blog-grid">
-          {home.blogPreview.posts.map(post => (
+          {blogPosts.map(post => (
             <article key={post.title} className="blog-card">
               <span>{post.tag}</span>
               <h3>{post.title}</h3>
@@ -174,19 +184,19 @@ export async function LandingSections({ locale }: Props) {
           ))}
         </div>
         <div className="section-cta">
-          <Link className="button button--ghost" href={`/${locale}${home.blogPreview.ctaHref}`}>
-            {home.blogPreview.ctaLabel}
+          <Link className="button button--ghost" href={`/${locale}${home?.blogPreview?.ctaHref ?? ""}`}>
+            {home?.blogPreview?.ctaLabel ?? ""}
           </Link>
         </div>
       </section>
 
       <section className="landing-panel landing-panel--payment">
         <header className="section-heading">
-          <span className="pill">{home.payment.eyebrow}</span>
-          <h2>{home.payment.title}</h2>
+          <span className="pill">{home?.payment?.eyebrow ?? ""}</span>
+          <h2>{home?.payment?.title ?? ""}</h2>
         </header>
         <div className="payment-grid">
-          {home.payment.cards.map(card => (
+          {paymentCards.map(card => (
             <article key={card.label} className="payment-card">
               <h3>{card.label}</h3>
               <ul>
@@ -197,20 +207,20 @@ export async function LandingSections({ locale }: Props) {
             </article>
           ))}
         </div>
-        <p className="payment-note">{home.payment.note}</p>
+        <p className="payment-note">{home?.payment?.note ?? ""}</p>
       </section>
 
       <section className="landing-panel landing-panel--contact">
         <header className="section-heading">
-          <span className="pill">{home.contactPanel.eyebrow}</span>
-          <h2>{home.contactPanel.title}</h2>
-          <p className="lead">{home.contactPanel.description}</p>
+          <span className="pill">{home?.contactPanel?.eyebrow ?? ""}</span>
+          <h2>{home?.contactPanel?.title ?? ""}</h2>
+          <p className="lead">{home?.contactPanel?.description ?? ""}</p>
         </header>
         <div className="contact-panel">
           <div>
-            <p className="eyebrow">{home.contactPanel.eyebrow}</p>
+            <p className="eyebrow">{home?.contactPanel?.eyebrow ?? ""}</p>
             <ul>
-              {home.contactPanel.contacts.map(contact => (
+              {contactContacts.map(contact => (
                 <li key={contact.label}>
                   <span>{contact.label}</span>
                   {contact.href ? (
@@ -223,9 +233,9 @@ export async function LandingSections({ locale }: Props) {
             </ul>
           </div>
           <div>
-            <p className="eyebrow">{common.footer.socialLabel}</p>
+            <p className="eyebrow">{common?.footer?.socialLabel ?? ""}</p>
             <div className="contact-panel__socials">
-              {home.contactPanel.socials.map(social => (
+              {contactSocials.map(social => (
                 <a key={social.href} href={social.href} target="_blank" rel="noreferrer">
                   {social.label}
                 </a>
@@ -234,11 +244,11 @@ export async function LandingSections({ locale }: Props) {
           </div>
         </div>
         <div className="section-cta">
-          <a className="button" href={home.contactPanel.ctaHref} target="_blank" rel="noreferrer">
-            {home.contactPanel.ctaLabel}
+          <a className="button" href={home?.contactPanel?.ctaHref ?? "#"} target="_blank" rel="noreferrer">
+            {home?.contactPanel?.ctaLabel ?? ""}
           </a>
           <a className="button button--ghost" href={mailto}>
-            {common.footer.contact}
+            {footerContact}
           </a>
         </div>
       </section>

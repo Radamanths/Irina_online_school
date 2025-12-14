@@ -1,4 +1,4 @@
-import { getSiteUrl } from "../../../src/lib/site-url";
+import { getSiteUrl } from "../../src/lib/site-url";
 
 export function GET(): Response {
   const siteUrl = getSiteUrl();

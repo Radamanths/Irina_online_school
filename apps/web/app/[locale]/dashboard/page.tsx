@@ -256,6 +256,8 @@ function buildProgressWidget({
   };
 }
 
+type MetricCard = { label: string; value: string; description?: string };
+
 function buildMetricCards({
   metrics,
   locale,
@@ -264,7 +266,7 @@ function buildMetricCards({
   metrics?: DashboardMetrics;
   locale: string;
   labels: { completed: string; watch: string; active: string; quizzes: string };
-}) {
+}): MetricCard[] {
   if (!metrics) {
     return [];
   }

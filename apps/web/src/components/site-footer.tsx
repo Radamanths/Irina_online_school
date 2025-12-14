@@ -4,13 +4,29 @@ interface Props {
   locale: string;
 }
 
-const stripNonDigits = (value: string) => value.replace(/[^0-9]/g, "");
-const sanitizeTel = (value: string) => value.replace(/[^0-9+]/g, "");
+const stripNonDigits = (value: string | null | undefined) => (value ?? "").replace(/[^0-9]/g, "");
+const sanitizeTel = (value: string | null | undefined) => (value ?? "").replace(/[^0-9+]/g, "");
+
+const defaultFooter = {
+  tagline: "",
+  contact: "",
+  legal: "",
+  phone: "",
+  whatsapp: "",
+  address: "",
+  cardLabel: "",
+  cardNumber: "",
+  paymentNote: "",
+  contactLabel: "",
+  paymentLabel: "",
+  socialLabel: "",
+  socials: [] as { label: string; href: string }[]
+};
 
 export async function SiteFooter({ locale }: Props) {
-  const {
-    common: { brandName, footer }
-  } = await getCopy(locale);
+  const { common } = await getCopy(locale);
+  const brandName = common?.brandName ?? "Virgo School";
+  const footer = { ...defaultFooter, ...(common?.footer ?? {}) };
   const year = new Date().getFullYear();
 
   const phoneHref = `tel:${sanitizeTel(footer.phone)}`;

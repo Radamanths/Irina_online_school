@@ -8,13 +8,35 @@ interface Props {
   locale: string;
 }
 
-const stripNonDigits = (value: string) => value.replace(/[^0-9]/g, "");
-const sanitizeTel = (value: string) => value.replace(/[^0-9+]/g, "");
+const stripNonDigits = (value: string | null | undefined) => (value ?? "").replace(/[^0-9]/g, "");
+const sanitizeTel = (value: string | null | undefined) => (value ?? "").replace(/[^0-9+]/g, "");
+
+const defaultFooter = {
+  tagline: "",
+  contact: "",
+  legal: "",
+  phone: "",
+  whatsapp: "",
+  address: "",
+  cardLabel: "",
+  cardNumber: "",
+  paymentNote: "",
+  contactLabel: "",
+  paymentLabel: "",
+  socialLabel: "",
+  socials: [] as { label: string; href: string }[]
+};
+
+const defaultNavigation = {
+  primary: [] as { label: string; path: string }[],
+  cta: { label: "", path: "" }
+};
 
 export async function SiteHeader({ locale }: Props) {
-  const {
-    common: { brandName, navigation, footer }
-  } = await getCopy(locale);
+  const { common } = await getCopy(locale);
+  const brandName = common?.brandName ?? "Virgo School";
+  const navigation = common?.navigation ?? defaultNavigation;
+  const footer = { ...defaultFooter, ...(common?.footer ?? {}) };
 
   const phoneHref = `tel:${sanitizeTel(footer.phone)}`;
   const whatsappHref = `https://wa.me/${stripNonDigits(footer.whatsapp)}`;
@@ -45,8 +67,8 @@ export async function SiteHeader({ locale }: Props) {
         <div className="site-header__action-group">
           <ThemeToggle />
           <LanguageSwitcher locale={locale} />
-          <Link className="button" href={`/${locale}/${navigation.cta.path}`}>
-            {navigation.cta.label}
+          <Link className="button" href={`/${locale}/${navigation.cta.path || "apply"}`}>
+            {navigation.cta.label || "Apply"}
           </Link>
         </div>
       </div>

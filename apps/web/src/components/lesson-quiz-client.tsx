@@ -172,6 +172,82 @@ export function LessonQuizClient({
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, [hasUnsubmittedProgress, copy.leaveWarning]);
 
+  const attemptsLimit = quiz.attemptsLimit ?? null;
+  const attemptsUsed = history.length;
+  const attemptsRemaining = attemptsLimit ? Math.max(attemptsLimit - attemptsUsed, 0) : null;
+  const limitReached = attemptsLimit ? attemptsUsed >= attemptsLimit : false;
+
+  const handleSubmit = useCallback(
+    async (options?: { allowIncomplete?: boolean; auto?: boolean }) => {
+      if (isSubmitting) {
+        return;
+      }
+
+      if (limitReached) {
+        setFeedback({ type: "error", message: copy.limitReached });
+        return;
+      }
+
+      if (timerExpired && !options?.auto) {
+        setFeedback({ type: "error", message: copy.timerExpired });
+        return;
+      }
+
+      const answers: QuizAnswerInput[] = quiz.questions.map(question => ({
+        questionId: question.id,
+        selectedOptionIds: selection[question.id] ?? []
+      }));
+
+      if (!options?.allowIncomplete && answers.some(answer => answer.selectedOptionIds.length === 0)) {
+        setFeedback({ type: "error", message: copy.selectAnswerError });
+        return;
+      }
+
+      const elapsedSecondsUsed =
+        typeof computedTimeLimit === "number" && typeof timerSeconds === "number"
+          ? Math.min(computedTimeLimit, Math.max(0, computedTimeLimit - timerSeconds))
+          : null;
+
+      try {
+        setIsSubmitting(true);
+        const submission = await submitAttempt({ answers, elapsedSeconds: elapsedSecondsUsed });
+        setHistory(prev => [submission, ...prev]);
+        setSelection(buildSelectionMap(quiz.questions));
+        setHasUnsubmittedProgress(false);
+        setFeedback({
+          type: submission.passed ? "success" : "error",
+          message: options?.auto
+            ? copy.autoSubmitMessage
+            : submission.passed
+            ? copy.submitSuccess
+            : copy.submitFailure
+        });
+      } catch (error) {
+        const message = error instanceof Error ? error.message : copy.submitError;
+        setFeedback({ type: "error", message: message || copy.submitError });
+      } finally {
+        setIsSubmitting(false);
+      }
+    },
+    [
+      isSubmitting,
+      limitReached,
+      copy.limitReached,
+      timerExpired,
+      copy.timerExpired,
+      quiz.questions,
+      selection,
+      copy.selectAnswerError,
+      computedTimeLimit,
+      timerSeconds,
+      submitAttempt,
+      copy.autoSubmitMessage,
+      copy.submitSuccess,
+      copy.submitFailure,
+      copy.submitError
+    ]
+  );
+
   useEffect(() => {
     if (!timerExpired || hasAutoSubmittedRef.current) {
       return;
@@ -194,10 +270,6 @@ export function LessonQuizClient({
     [locale]
   );
 
-  const attemptsLimit = quiz.attemptsLimit ?? null;
-  const attemptsUsed = history.length;
-  const attemptsRemaining = attemptsLimit ? Math.max(attemptsLimit - attemptsUsed, 0) : null;
-  const limitReached = attemptsLimit ? attemptsUsed >= attemptsLimit : false;
   const latestAttempt = history[0];
   const latestAnswersById = useMemo<Record<string, QuizSubmission["answers"][number]> | null>(() => {
     if (!latestAttempt) {
@@ -316,77 +388,6 @@ export function LessonQuizClient({
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
-
-  const handleSubmit = useCallback(
-    async (options?: { allowIncomplete?: boolean; auto?: boolean }) => {
-      if (isSubmitting) {
-        return;
-      }
-
-      if (limitReached) {
-        setFeedback({ type: "error", message: copy.limitReached });
-        return;
-      }
-
-      if (timerExpired && !options?.auto) {
-        setFeedback({ type: "error", message: copy.timerExpired });
-        return;
-      }
-
-      const answers: QuizAnswerInput[] = quiz.questions.map(question => ({
-        questionId: question.id,
-        selectedOptionIds: selection[question.id] ?? []
-      }));
-
-      if (!options?.allowIncomplete && answers.some(answer => answer.selectedOptionIds.length === 0)) {
-        setFeedback({ type: "error", message: copy.selectAnswerError });
-        return;
-      }
-
-      const elapsedSecondsUsed =
-        typeof computedTimeLimit === "number" && typeof timerSeconds === "number"
-          ? Math.min(computedTimeLimit, Math.max(0, computedTimeLimit - timerSeconds))
-          : null;
-
-      try {
-        setIsSubmitting(true);
-        const submission = await submitAttempt({ answers, elapsedSeconds: elapsedSecondsUsed });
-        setHistory(prev => [submission, ...prev]);
-        setSelection(buildSelectionMap(quiz.questions));
-        setHasUnsubmittedProgress(false);
-        setFeedback({
-          type: submission.passed ? "success" : "error",
-          message: options?.auto
-            ? copy.autoSubmitMessage
-            : submission.passed
-            ? copy.submitSuccess
-            : copy.submitFailure
-        });
-      } catch (error) {
-        const message = error instanceof Error ? error.message : copy.submitError;
-        setFeedback({ type: "error", message: message || copy.submitError });
-      } finally {
-        setIsSubmitting(false);
-      }
-    },
-    [
-      isSubmitting,
-      limitReached,
-      copy.limitReached,
-      timerExpired,
-      copy.timerExpired,
-      quiz.questions,
-      selection,
-      copy.selectAnswerError,
-      computedTimeLimit,
-      timerSeconds,
-      submitAttempt,
-      copy.autoSubmitMessage,
-      copy.submitSuccess,
-      copy.submitFailure,
-      copy.submitError
-    ]
-  );
 
   const toolbarTimerMessage = timerExpired ? copy.timerExpired : copy.timerHint;
   const rootClass = `lesson-quiz__interactive${isFocusMode ? " is-focus" : ""}`;
@@ -619,7 +620,7 @@ export function LessonQuizClient({
           <article
             key={question.id}
             className="lesson-quiz__question"
-            ref={el => {
+            ref={(el: HTMLDivElement | null) => {
               questionRefs.current[question.id] = el;
             }}
           >

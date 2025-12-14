@@ -1669,6 +1669,30 @@ const orderDetailFallback: Record<string, OrderDetail> = {
     courseTitle: "UX Research Sprint",
     enrollmentId: "enroll-01",
     metadata: { provider: "tinkoff", reminders: { count: 1, lastSentAt: "2025-11-18T12:30:00.000Z" } },
+    lastPaymentLink: {
+      id: "link-10342-1",
+      url: "https://demo.virgo.school/checkout/ORD-10342?provider=tinkoff",
+      provider: "tinkoff",
+      locale: "ru",
+      createdAt: "18 ноя, 12:14",
+      createdAtIso: "2025-11-18T09:14:00.000Z",
+      paymentId: "pay-1",
+      providerRef: "tk-ORD-10342",
+      simulated: false
+    },
+    paymentLinkHistory: [
+      {
+        id: "link-10342-1",
+        url: "https://demo.virgo.school/checkout/ORD-10342?provider=tinkoff",
+        provider: "tinkoff",
+        locale: "ru",
+        createdAt: "18 ноя, 12:14",
+        createdAtIso: "2025-11-18T09:14:00.000Z",
+        paymentId: "pay-1",
+        providerRef: "tk-ORD-10342",
+        simulated: false
+      }
+    ],
     refundReason: null,
     refundProcessedAt: null,
     paymentAttempts: [
@@ -1916,14 +1940,7 @@ const orderDetailFallback: Record<string, OrderDetail> = {
       phone: "+7 343 777-99-88",
       updatedAt: "15 ноя, 08:40"
     },
-    invoice: {
-      id: null,
-      status: null,
-      downloadUrl: null,
-      notes: null,
-      requestedAt: null,
-      profileSnapshot: null
-    }
+    invoice: null
   }
 };
 

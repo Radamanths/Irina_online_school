@@ -78,7 +78,7 @@ export default async function LessonPage({ params }: LessonParams) {
     );
   }
 
-  if (lessonAccess.courseId && lessonAccess.courseId !== course.id) {
+  if ("courseId" in lessonAccess && lessonAccess.courseId && lessonAccess.courseId !== course.id) {
     notFound();
   }
 

@@ -41,10 +41,10 @@ admin-manual/ # ops + content team guides
   Update `DATABASE_URL` in `apps/api/.env` if your local Postgres connection string differs.
     The marketing site also reads `GOOGLE_SITE_VERIFICATION` from `apps/web/.env.local` to render the Search Console `<meta name="google-site-verification" ...>` tag (leave it blank for local work).
 3. **Start dev services**
-   ```powershell
-   pnpm dev
-   ```
-   This runs web (port 3000), admin (3001), and API (4000) via turborepo dev script.
+  ```powershell
+  pnpm dev:site
+  ```
+  The shortcut above launches the API (4000), admin (3001), and marketing site (3000) together. Use `pnpm dev` if you need every workspace with a `dev` task (design system, experiments, etc.) to run via Turborepo.
 
 ### Optional Python tooling
 

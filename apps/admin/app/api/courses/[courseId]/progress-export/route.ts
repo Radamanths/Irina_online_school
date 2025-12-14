@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import { getAppConfig } from "@virgo/config";
 
-interface RouteParams {
-  params: { courseId: string };
+interface RouteContext {
+  params: Promise<{ courseId: string }>;
 }
 
-export async function GET(request: Request, { params }: RouteParams) {
-  const { courseId } = params;
+export async function GET(request: Request, { params }: RouteContext) {
+  const { courseId } = await params;
   const { apiBaseUrl } = getAppConfig();
 
   if (!courseId) {

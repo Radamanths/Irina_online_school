@@ -5,8 +5,8 @@ import type { DragEvent } from "react";
 
 const MAX_FILE_SIZE_BYTES = 15 * 1024 * 1024; // 15MB
 const uploadEndpoint =
-  typeof process !== "undefined" && process.env.NEXT_PUBLIC_API_BASE_URL
-    ? `${process.env.NEXT_PUBLIC_API_BASE_URL.replace(/\/$/, "")}/certificates/upload`
+  typeof process !== "undefined" && process.env.NEXT_PUBLIC_API_BASE
+    ? `${process.env.NEXT_PUBLIC_API_BASE.replace(/\/$/, "")}/certificates/upload`
     : null;
 
 type CertificateUploaderProps = {

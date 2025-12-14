@@ -6,8 +6,11 @@
   "scripts": {
     "predev": "pnpm --filter @virgo/config run build",
     "dev": "turbo run dev --parallel",
+    "predev:site": "pnpm run predev",
+    "dev:site": "turbo run dev --parallel --filter=@virgo/api --filter=@virgo/admin --filter=@virgo/web",
     "prebuild": "pnpm --filter @virgo/config run build",
     "build": "turbo run build",
+    "postinstall": "pnpm --filter @virgo/api run prisma:generate",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "storybook": "turbo run storybook",
@@ -20,8 +23,15 @@
     "@types/node": "20.11.30",
     "eslint": "9.9.0",
     "prettier": "3.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "ts-node": "10.9.2",
     "turbo": "2.1.0",
     "typescript": "5.7.3"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "proxy-from-env@1.1.0": "patches/proxy-from-env@1.1.0.patch"
+    }
   }
 }

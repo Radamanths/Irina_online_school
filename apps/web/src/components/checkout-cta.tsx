@@ -254,6 +254,10 @@ function resolveCohortCode(course: CourseDetail): string | undefined {
   return undefined;
 }
 
+const RUSSIAN_MONTH_FORMS = ["месяц", "месяца", "месяцев"] as const;
+const RUSSIAN_YEAR_FORMS = ["год", "года", "лет"] as const;
+const RUSSIAN_DAY_FORMS = ["день", "дня", "дней"] as const;
+
 function formatPlanPrice(amount: number, currency: string, locale: string): string {
   const resolvedLocale = locale.startsWith("ru") ? "ru-RU" : "en-US";
   try {
@@ -270,7 +274,7 @@ function formatPlanPrice(amount: number, currency: string, locale: string): stri
 
 function formatIntervalLabel(locale: string, count: number, unit: "month" | "year"): string {
   if (locale.startsWith("ru")) {
-    const forms = unit === "month" ? ["месяц", "месяца", "месяцев"] : ["год", "года", "лет"];
+    const forms = unit === "month" ? RUSSIAN_MONTH_FORMS : RUSSIAN_YEAR_FORMS;
     const word = selectRussianPlural(count, forms);
     const prefix = count === 1 ? "Каждый" : "Каждые";
     return `${prefix} ${count} ${word}`;
@@ -283,7 +287,7 @@ function formatIntervalLabel(locale: string, count: number, unit: "month" | "yea
 
 function formatTrialLabel(locale: string, days: number): string {
   if (locale.startsWith("ru")) {
-    const word = selectRussianPlural(days, ["день", "дня", "дней"]);
+    const word = selectRussianPlural(days, RUSSIAN_DAY_FORMS);
     return `${days} ${word} пробного периода`;
   }
 
@@ -291,7 +295,7 @@ function formatTrialLabel(locale: string, days: number): string {
   return `${days} ${suffix} free trial`;
 }
 
-function selectRussianPlural(count: number, forms: [string, string, string]): string {
+function selectRussianPlural(count: number, forms: readonly [string, string, string]): string {
   const mod10 = count % 10;
   const mod100 = count % 100;
   if (mod10 === 1 && mod100 !== 11) {

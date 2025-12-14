@@ -12,7 +12,7 @@ import { InvoiceManager } from "../../../../src/components/invoice-manager";
 import { getOrderDetail, type OrderDetail } from "../../../../src/lib/api";
 
 interface OrderDetailPageProps {
-  params: { orderId: string };
+  params: Promise<{ orderId: string }>;
 }
 
 const paymentColumns: DataTableColumn[] = [
@@ -74,7 +74,8 @@ function buildPaymentRows(order: OrderDetail): DataTableRow[] {
 }
 
 export default async function OrderDetailPage({ params }: OrderDetailPageProps) {
-  const order = await getOrderDetail(params.orderId);
+  const { orderId } = await params;
+  const order = await getOrderDetail(orderId);
 
   if (!order) {
     notFound();
@@ -340,7 +341,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
         </section>
       )}
 
-      {order.lastPaymentLink && <PaymentLinkSummaryCard link={{ ...order.lastPaymentLink, orderId: order.id }} />}
+      {order.lastPaymentLink && <PaymentLinkSummaryCard link={order.lastPaymentLink} />}
       {order.paymentLinkHistory.length > 0 && <PaymentLinkHistory links={order.paymentLinkHistory} />}
 
       <section className="detail-stack">

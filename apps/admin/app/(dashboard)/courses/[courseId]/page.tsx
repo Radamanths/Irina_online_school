@@ -7,11 +7,12 @@ import { PageHeader } from "../../../../src/components/page-header";
 import { CourseEditor } from "../../../../src/components/course-editor";
 
 type CourseEditorPageProps = {
-  params: { courseId: string };
+  params: Promise<{ courseId: string }>;
 };
 
 export default async function CourseEditorPage({ params }: CourseEditorPageProps) {
-  const course = await getCourseDetail(params.courseId);
+  const { courseId } = await params;
+  const course = await getCourseDetail(courseId);
 
   if (!course) {
     notFound();

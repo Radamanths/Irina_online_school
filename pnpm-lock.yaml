@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  proxy-from-env@1.1.0:
+    hash: thvvqnwdzzvpxcdjwiiojffdje
+    path: patches/proxy-from-env@1.1.0.patch
+
 importers:
 
   .:
@@ -20,6 +25,12 @@ importers:
       prettier:
         specifier: 3.2.5
         version: 3.2.5
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: 18.3.1
+        version: 18.3.1(react@18.3.1)
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@types/node@20.11.30)(typescript@5.7.3)
@@ -186,7 +197,7 @@ importers:
         version: 15.0.0(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-intl:
         specifier: 3.12.0
-        version: 3.12.0(next@15.0.0(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        version: 3.12.0(next@15.0.0(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -7671,7 +7682,7 @@ snapshots:
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.5
-      proxy-from-env: 1.1.0
+      proxy-from-env: 1.1.0(patch_hash=thvvqnwdzzvpxcdjwiiojffdje)
     transitivePeerDependencies:
       - debug
 
@@ -9987,7 +9998,7 @@ snapshots:
 
   netmask@2.0.2: {}
 
-  next-intl@3.12.0(next@15.0.0(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
+  next-intl@3.12.0(next@15.0.0(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
     dependencies:
       '@formatjs/intl-localematcher': 0.2.32
       negotiator: 0.6.4
@@ -10286,12 +10297,12 @@ snapshots:
       https-proxy-agent: 7.0.6
       lru-cache: 7.18.3
       pac-proxy-agent: 7.2.0
-      proxy-from-env: 1.1.0
+      proxy-from-env: 1.1.0(patch_hash=thvvqnwdzzvpxcdjwiiojffdje)
       socks-proxy-agent: 8.0.5
     transitivePeerDependencies:
       - supports-color
 
-  proxy-from-env@1.1.0: {}
+  proxy-from-env@1.1.0(patch_hash=thvvqnwdzzvpxcdjwiiojffdje): {}
 
   pump@3.0.3:
     dependencies:

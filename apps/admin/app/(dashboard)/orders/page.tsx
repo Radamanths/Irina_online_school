@@ -7,16 +7,17 @@ import { getOrdersFeed } from "../../../src/lib/api";
 import { buildOrdersFilterQuery, normalizeOrdersFilters } from "../../../src/lib/orders-filters";
 
 interface OrdersPageProps {
-  searchParams: Record<string, string | string[] | undefined>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
 const PAGE_SIZE_OPTIONS = [25, 50, 100];
 const DEFAULT_PAGE_SIZE = PAGE_SIZE_OPTIONS[0];
 
 export default async function OrdersPage({ searchParams }: OrdersPageProps) {
-  const initialFilters = normalizeOrdersFilters(searchParams);
-  const currentPage = parsePage(searchParams.page);
-  const pageSize = parsePageSize(searchParams.pageSize, PAGE_SIZE_OPTIONS, DEFAULT_PAGE_SIZE);
+  const resolvedSearchParams = await searchParams;
+  const initialFilters = normalizeOrdersFilters(resolvedSearchParams);
+  const currentPage = parsePage(resolvedSearchParams.page);
+  const pageSize = parsePageSize(resolvedSearchParams.pageSize, PAGE_SIZE_OPTIONS, DEFAULT_PAGE_SIZE);
   const offset = (currentPage - 1) * pageSize;
   const ordersFeed = await getOrdersFeed(initialFilters, { limit: pageSize, offset });
   const orders = ordersFeed.items;
