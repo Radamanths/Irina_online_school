@@ -39,10 +39,42 @@ function collectStrings(value, out) {
   }
 }
 
-function ensureFileExists(filePath) {
-  if (fs.existsSync(filePath)) return false;
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, "", "utf8");
+function toPosixPath(p) {
+  return p.replace(/\\/g, "/");
+}
+
+function withLeadingDotSlash(p) {
+  if (p.startsWith("./") || p.startsWith("../")) return p;
+  return `./${p}`;
+}
+
+function stripRouteGroupsFromAppServerPath(filePath) {
+  const posix = toPosixPath(filePath);
+  const marker = "/.next/server/app/";
+  const idx = posix.indexOf(marker);
+  if (idx === -1) return filePath;
+
+  const prefix = posix.slice(0, idx + marker.length);
+  const rest = posix.slice(idx + marker.length);
+
+  // Remove Next.js route groups like `(dashboard)/`.
+  const strippedRest = rest.replace(/\([^/]+\)\//g, "");
+  return path.normalize(prefix + strippedRest);
+}
+
+function ensureShimFile(targetPath, candidatePath) {
+  if (fs.existsSync(targetPath)) return false;
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+
+  const rel = path.relative(path.dirname(targetPath), candidatePath);
+  const relPosix = toPosixPath(withLeadingDotSlash(rel));
+
+  const content =
+    "// Auto-generated on Vercel to satisfy tracing for Next.js route groups.\n" +
+    "// This shim keeps runtime stable by loading the real client reference manifest.\n" +
+    `try { require(${JSON.stringify(relPosix)}); } catch (_) {}\n`;
+
+  fs.writeFileSync(targetPath, content, "utf8");
   return true;
 }
 
@@ -87,14 +119,26 @@ function main() {
   if (missing.size === 0) return;
 
   let createdCount = 0;
-  for (const p of missing) {
-    if (ensureFileExists(p)) createdCount += 1;
+  let skippedCount = 0;
+
+  for (const targetPath of missing) {
+    const candidatePath = stripRouteGroupsFromAppServerPath(targetPath);
+    if (candidatePath === targetPath || !fs.existsSync(candidatePath)) {
+      skippedCount += 1;
+      continue;
+    }
+
+    if (ensureShimFile(targetPath, candidatePath)) createdCount += 1;
   }
 
   if (createdCount > 0) {
     console.log(
-      `[vercel-fix] Created ${createdCount} missing *_client-reference-manifest.js file(s) to satisfy tracing.`
+      `[vercel-fix] Created ${createdCount} shim *_client-reference-manifest.js file(s) to satisfy tracing.`
     );
+  }
+
+  if (skippedCount > 0) {
+    console.log(`[vercel-fix] Skipped ${skippedCount} manifest(s) (no safe candidate found).`);
   }
 }
 
