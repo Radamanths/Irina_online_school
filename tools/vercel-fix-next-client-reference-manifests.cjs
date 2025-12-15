@@ -66,13 +66,30 @@ function ensureShimFile(targetPath, candidatePath) {
   if (fs.existsSync(targetPath)) return false;
   fs.mkdirSync(path.dirname(targetPath), { recursive: true });
 
-  const rel = path.relative(path.dirname(targetPath), candidatePath);
-  const relPosix = toPosixPath(withLeadingDotSlash(rel));
+  const rel = candidatePath
+    ? path.relative(path.dirname(targetPath), candidatePath)
+    : null;
+  const relPosix = rel ? toPosixPath(withLeadingDotSlash(rel)) : null;
 
   const content =
     "// Auto-generated on Vercel to satisfy tracing for Next.js route groups.\n" +
-    "// This shim keeps runtime stable by loading the real client reference manifest.\n" +
-    `try { require(${JSON.stringify(relPosix)}); } catch (_) {}\n`;
+    "// IMPORTANT: must export a valid manifest object (Next expects clientModules).\n" +
+    "let __m;\n" +
+    (relPosix
+      ? `try { __m = require(${JSON.stringify(relPosix)}); } catch (_) {}\n`
+      : "") +
+    "if (__m && typeof __m === 'object' && __m.__esModule && __m.default) __m = __m.default;\n" +
+    "if (!__m || typeof __m !== 'object') {\n" +
+    "  __m = {\n" +
+    "    clientModules: {},\n" +
+    "    ssrModuleMapping: {},\n" +
+    "    rscModuleMapping: {},\n" +
+    "    edgeRscModuleMapping: {},\n" +
+    "  };\n" +
+    "}\n" +
+    "module.exports = __m;\n" +
+    "module.exports.default = __m;\n" +
+    "module.exports.__esModule = true;\n";
 
   fs.writeFileSync(targetPath, content, "utf8");
   return true;
@@ -119,16 +136,18 @@ function main() {
   if (missing.size === 0) return;
 
   let createdCount = 0;
-  let skippedCount = 0;
+  let fallbackCount = 0;
 
   for (const targetPath of missing) {
     const candidatePath = stripRouteGroupsFromAppServerPath(targetPath);
-    if (candidatePath === targetPath || !fs.existsSync(candidatePath)) {
-      skippedCount += 1;
-      continue;
-    }
+    const hasCandidate = candidatePath !== targetPath && fs.existsSync(candidatePath);
+    const usedCandidatePath = hasCandidate ? candidatePath : null;
 
-    if (ensureShimFile(targetPath, candidatePath)) createdCount += 1;
+    const didCreate = ensureShimFile(targetPath, usedCandidatePath);
+    if (!didCreate) continue;
+
+    createdCount += 1;
+    if (!hasCandidate) fallbackCount += 1;
   }
 
   if (createdCount > 0) {
@@ -137,8 +156,10 @@ function main() {
     );
   }
 
-  if (skippedCount > 0) {
-    console.log(`[vercel-fix] Skipped ${skippedCount} manifest(s) (no safe candidate found).`);
+  if (fallbackCount > 0) {
+    console.log(
+      `[vercel-fix] ${fallbackCount} shim(s) used a minimal fallback manifest (no candidate found).`
+    );
   }
 }
 
